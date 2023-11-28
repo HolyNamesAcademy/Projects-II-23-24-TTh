@@ -1,4 +1,4 @@
-package com.hna.webserver.model;
+package com.hna.hnamagotchi.model;
 
 import jakarta.persistence.*;
 

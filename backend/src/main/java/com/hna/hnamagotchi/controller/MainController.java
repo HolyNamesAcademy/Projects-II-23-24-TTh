@@ -1,4 +1,4 @@
-package com.hna.webserver.controller;
+package com.hna.hnamagotchi.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

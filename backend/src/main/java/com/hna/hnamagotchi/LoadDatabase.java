@@ -1,7 +1,7 @@
-package com.hna.webserver;
+package com.hna.hnamagotchi;
 
-import com.hna.webserver.model.User;
-import com.hna.webserver.repository.UserRepository;
+import com.hna.hnamagotchi.model.User;
+import com.hna.hnamagotchi.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;

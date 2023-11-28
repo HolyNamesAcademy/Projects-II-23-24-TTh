@@ -1,10 +1,10 @@
-package com.hna.webserver;
+package com.hna.hnamagotchi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WebServerApplicationTests {
+class HnamagotchiApplicationTests {
 
 	@Test
 	void contextLoads() {

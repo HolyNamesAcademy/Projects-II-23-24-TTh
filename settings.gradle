@@ -1,4 +1,4 @@
-rootProject.name = 'webserver'
+rootProject.name = 'HNAMAGOTCHI'
 
 include 'backend'
 include 'frontend'

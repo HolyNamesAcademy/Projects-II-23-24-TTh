@@ -1,6 +1,6 @@
-package com.hna.webserver.repository;
+package com.hna.hnamagotchi.repository;
 
-import com.hna.webserver.model.User;
+import com.hna.hnamagotchi.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -15,7 +15,7 @@
             "type": "java",
             "name": "Run Backend",
             "request": "launch",
-            "mainClass": "com.hna.webserver.WebServerApplication"
+            "mainClass": "com.hna.hnamagotchi.HnamagotchiApplication"
         }
     ]
 }

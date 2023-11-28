@@ -1,7 +1,7 @@
-package com.hna.webserver.controller;
+package com.hna.hnamagotchi.controller;
 
-import com.hna.webserver.model.User;
-import com.hna.webserver.repository.UserRepository;
+import com.hna.hnamagotchi.model.User;
+import com.hna.hnamagotchi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
