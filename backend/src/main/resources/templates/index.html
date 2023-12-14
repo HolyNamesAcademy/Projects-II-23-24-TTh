@@ -28,15 +28,12 @@
 
     function preload ()
     {
-    this.load.spritesheet('dude',
-         'dude.png',
-         { frameWidth: 32, frameHeight: 48 }
-     );
+        this.load.image('charby','charby1.webp',{frameWidth:32, frameHeight:48});
     }
 
     function create ()
     {
-        player = this.physics.add.sprite(100, 450, 'dude');
+        player = add.image(100,200, 'charby');
     }
 
     function update ()
