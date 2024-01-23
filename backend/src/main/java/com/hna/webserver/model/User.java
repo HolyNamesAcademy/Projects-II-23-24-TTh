@@ -12,6 +12,10 @@ public class User {
 
     @Column(name = "name")
     private String name;
+    @Column(name = "hnaEmail")
+    private String hnaEmail;
+    @Column(name = "username")
+    private String username;
 
     public User() {
 
@@ -19,6 +23,12 @@ public class User {
 
     public User(String name) {
         this.name = name;
+    }
+
+    public User(String name, String hnaEmail, String username){
+        this.name = name;
+        this.hnaEmail = hnaEmail;
+        this.username = username;
     }
 
     public long getId() {
@@ -33,9 +43,14 @@ public class User {
         this.name = name;
     }
 
+    public String getUsername() {return username;}
+    public void setUsername(String username) {this.username = username;}
+    public String getHnaEmail() {return hnaEmail;}
+    public void setHnaEmail(String hnaEmail) {this.hnaEmail = hnaEmail;}
+
     @Override
     public String toString() {
-        return "User [id=" + id + ", name=" + name + "]";
+        return "User [id=" + id + ", name=" + name + ", username=" + username+"]";
     }
 
 }
