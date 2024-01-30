@@ -1,4 +1,4 @@
-import Hello from '../components/Hello';
+import Button from '../components/Button';
 import PhaserGame from '../components/PhaserGame';
 
 // This is the home page component. Change it to make
@@ -8,7 +8,7 @@ function HomePage() {
     // You can put other components here.
     <div>
       <PhaserGame />
-      <Hello />
+      <Button />
     </div>
   );
 }

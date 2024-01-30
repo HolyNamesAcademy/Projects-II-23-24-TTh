@@ -6,7 +6,7 @@ import { Outlet } from 'react-router-dom';
 // to create alternative layouts for maybe a page without navigation.
 function DefaultLayout() {
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="xs">
       {/* An <Outlet> renders whatever child route is currently active,
           so you can think about this <Outlet> as a placeholder for
           the child routes we defined in the App.jsx above. */}
