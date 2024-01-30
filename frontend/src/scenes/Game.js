@@ -9,10 +9,22 @@ class Game extends Phaser.Scene {
   init() {}
 
   create() {
-    this.add.image(100, 200, 'charby');
+    var charby = this.add.image(100, 100, 'charby');
+    charby.setDisplaySize(100,100);
+
+    var pizza1 = this.add.image(20,20, 'pizza');
+    pizza1.setDisplaySize(60,60);
+    var pizza2 = this.add.image(40,20, 'pizza');
+    pizza2.setDisplaySize(60,60);
+    var pizza3 = this.add.image(60,20, 'pizza');
+    pizza3.setDisplaySize(60,60);
+
+    pizza3.visible = false;
   }
 
-  update() {}
+  update() {
+
+  }
 }
 
 export default Game;
