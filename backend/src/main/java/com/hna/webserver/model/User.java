@@ -18,7 +18,8 @@ public class User {
     private String hnaEmail;
     @Column(name = "username")
     private String username;
-
+    @Column(name = "password")
+    private String password;
     public User() {
 
     }
@@ -27,10 +28,11 @@ public class User {
         this.name = name;
     }
 
-    public User(String name, String hnaEmail, String username){
+    public User(String name, String hnaEmail, String username, String password){
         this.name = name;
         this.hnaEmail = hnaEmail;
         this.username = username;
+        this.password = password;
     }
 
     public long getId() {
@@ -49,6 +51,8 @@ public class User {
     public void setUsername(String username) {this.username = username;}
     public String getHnaEmail() {return hnaEmail;}
     public void setHnaEmail(String hnaEmail) {this.hnaEmail = hnaEmail;}
+    public String getPassword() {return password;}
+    public String setPassword(String password){this.password = password;}
 
     @Override
     public String toString() {

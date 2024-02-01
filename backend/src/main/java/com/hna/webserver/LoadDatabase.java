@@ -17,9 +17,9 @@ public class LoadDatabase {
     @Bean
     CommandLineRunner initDatabase(UserRepository userRepository, CharbyRepository charbyRepository) {
         return args -> {
-            log.info("Preloading " + userRepository.save(new User("Bilbo Baggins", "BBaggins@holynames-sea.org", "bilba")));
-            log.info("Preloading " + userRepository.save(new User("Frodo Baggins", "FBaggins@holynames-sea.org", "froba")));
-            log.info("Preloading " + userRepository.save(new User("Gandalf Baggins", "GBaggins@holynames-sea.org", "ganba")));
+            log.info("Preloading " + userRepository.save(new User("Bilbo Baggins", "BBaggins@holynames-sea.org", "bilba", "hna!")));
+            log.info("Preloading " + userRepository.save(new User("Frodo Baggins", "FBaggins@holynames-sea.org", "froba", "H!Na")));
+            log.info("Preloading " + userRepository.save(new User("Gandalf Baggins", "GBaggins@holynames-sea.org", "ganba", "!AnH")));
             log.info("Preloading " + charbyRepository.save(new Charby("Charby 1")));
         };
     }
