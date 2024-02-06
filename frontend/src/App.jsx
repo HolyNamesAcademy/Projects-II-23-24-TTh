@@ -1,12 +1,23 @@
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { purple } from '@mui/material/colors';
 import { Routes, Route } from 'react-router-dom';
 import DefaultLayout from './layouts/DefaultLayout';
 import HomePage from './pages/HomePage';
 import OtherPage from './pages/OtherPage';
 import NoMatchPage from './pages/NoMatchPage';
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#FFA6C9',
+    },
+    secondary: purple,
+  },
+});
+
 function App() {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       {/* Routes nest inside one another. Nested route paths build upon
       parent route paths, and nested route elements render inside
       parent route elements. See the note about <Outlet> in DefaultLayout. */}
@@ -21,7 +32,7 @@ function App() {
           <Route path="*" element={<NoMatchPage />} />
         </Route>
       </Routes>
-    </div>
+    </ThemeProvider>
   );
 }
 
