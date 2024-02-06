@@ -3,6 +3,7 @@ import DefaultLayout from './layouts/DefaultLayout';
 import HomePage from './pages/HomePage';
 import OtherPage from './pages/OtherPage';
 import NoMatchPage from './pages/NoMatchPage';
+import SignUpPage from './pages/SignUpPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<DefaultLayout />}>
           <Route index element={<HomePage />} />
           <Route path="/other" element={<OtherPage />} />
+          <Route path="/sign-up" element={<SignUpPage />} />
 
           {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
