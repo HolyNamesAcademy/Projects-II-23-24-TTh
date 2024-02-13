@@ -3,17 +3,16 @@
 // route to the App.jsx file.
 import SignUp from '../components/SignUp';
 
-
 function SignUpPage() {
   return (
     // You can put other components here.
-    // add link to homepage for back button 
+    // add link to homepage for back button
     <div>
       <h1> Sign Up! </h1>
       <SignUp />
       <p>
-      
-        <Button to="/">Back</Button> 
+
+        <button href="/">Back</button>
       </p>
     </div>
 
