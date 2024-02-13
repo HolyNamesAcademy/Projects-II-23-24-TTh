@@ -36,22 +36,32 @@ public class UserApiController {
 	}
 	@PostMapping("/users/signup")
 	public ResponseEntity<User> signup(@RequestBody User user){
-		if (!(user.getHnaEmail().substring(user.getHnaEmail().length()-18, user.getHnaEmail().length()).equals("@holynames-sea.org"))) {
+		System.out.println(user);
+		if((user.getHnaEmail()==null) || user.getHnaEmail().equals("")){
+			System.out.println("Please enter an email.");
 			return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
 		}
-		if((user.getName().equals(null))){
+		if (user.getHnaEmail().length() < 18 || !(user.getHnaEmail().substring(user.getHnaEmail().length()-17, user.getHnaEmail().length()).equals("holynames-sea.org"))) {
+			System.out.println("Please enter an email with an HNA domain.");
 			return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
 		}
-		if(user.getPassword().equals(null)){
+		if((user.getName()==null || user.getName().equals(""))){
+			System.out.println("Please enter your name.");
 			return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
 		}
-		if(user.getUsername().equals(null)){
+		if(user.getPassword()==null || user.getPassword().equals("")){
+			System.out.println("Please enter a password.");
+			return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
+		}
+		if(user.getUsername()==null || user.getUsername().equals("")){
+			System.out.println("Please enter a username.");
 			return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
 		}
 		//store in variable, loop over and see if it exists
 		List<User> userList = userRepository.findAll();
 		for (int i = 0; i<userList.size(); i++){
 			if(userList.get(i).getUsername().equals(user.getUsername())){
+				System.out.println("This username has already been taken. Please enter another username.");
 				return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
 			}
 		}
