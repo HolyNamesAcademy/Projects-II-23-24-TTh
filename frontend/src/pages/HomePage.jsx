@@ -1,16 +1,13 @@
-import Button from '../components/Button';
+import HomePageButton from '../components/HomePageButton';
 import PhaserGame from '../components/PhaserGame';
-import NavBar from '../components/NavBar';
+import FeedButton from '../components/FeedButton';
 
-// This is the home page component. Change it to make
-// changes to the home page.
 function HomePage() {
   return (
-    // You can put other components here.
     <div>
-      <NavBar />
       <PhaserGame />
-      <Button />
+      <FeedButton />
+      <HomePageButton />
     </div>
   );
 }

@@ -5,6 +5,8 @@ import DefaultLayout from './layouts/DefaultLayout';
 import HomePage from './pages/HomePage';
 import OtherPage from './pages/OtherPage';
 import NoMatchPage from './pages/NoMatchPage';
+import ChatPage from './pages/ChatPage';
+import GroceryStore from './pages/GroceryStore';
 
 const theme = createTheme({
   palette: {
@@ -25,6 +27,8 @@ function App() {
         <Route path="/" element={<DefaultLayout />}>
           <Route index element={<HomePage />} />
           <Route path="/other" element={<OtherPage />} />
+          <Route path="/chat" element={<ChatPage />} />
+          <Route path="/store" element={<GroceryStore />} />
 
           {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
