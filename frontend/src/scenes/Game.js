@@ -4,7 +4,6 @@ import Phaser from 'phaser';
 class Game extends Phaser.Scene {
   constructor() {
     super('game');
-    const counter;
   }
 
   init() {
@@ -39,13 +38,6 @@ class Game extends Phaser.Scene {
 
   update() {
 
-    if(counter == 900){
-      counter = 0;
-      console.log();
-    }
-    else{
-      counter++;
-    }
 
     const keys = ['hearts'];
     this.charbyhearts.anims.play('hearts', true);
