@@ -37,11 +37,11 @@ public class UserApiController {
 	@PostMapping("/users/signup")
 	public ResponseEntity<User> signup(@RequestBody User user){
 		System.out.println(user);
-		if((user.getHnaEmail()==null) || user.getHnaEmail().equals("")){
+		if((user.getEmail()==null) || user.getEmail().equals("")){
 			System.out.println("Please enter an email.");
 			return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
 		}
-		if (user.getHnaEmail().length() < 18 || !(user.getHnaEmail().substring(user.getHnaEmail().length()-17, user.getHnaEmail().length()).equals("holynames-sea.org"))) {
+		if (user.getEmail().length() < 18 || !(user.getEmail().substring(user.getEmail().length()-17, user.getEmail().length()).equals("holynames-sea.org"))) {
 			System.out.println("Please enter an email with an HNA domain.");
 			return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
 		}
