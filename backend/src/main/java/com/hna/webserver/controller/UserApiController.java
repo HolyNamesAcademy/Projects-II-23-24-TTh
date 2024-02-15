@@ -69,5 +69,25 @@ public class UserApiController {
 		return new ResponseEntity<>(HttpStatus.CREATED);
 
 	}
+	@PostMapping("/users/login")
+	public ResponseEntity<User> login(@RequestBody User user){
+		if(user.getPassword()==null || user.getPassword().equals("")){
+			System.out.println("Please enter a password.");
+			return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
+		}
+		if(user.getUsername()==null || user.getUsername().equals("")){
+			System.out.println("Please enter a username.");
+			return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
+		}
+
+		List<User> userList = userRepository.findAll();
+		for (int i = 0; i<userList.size(); i++){
+			if(userList.get(i).getUsername().equals(user.getUsername()) && userList.get(i).getPassword().equals(user.getPassword())){
+				return new ResponseEntity<>(HttpStatus.ACCEPTED);
+			}
+			System.out.println("Your username and password do not match. Please re-enter your log-in information.");
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
 
 }
