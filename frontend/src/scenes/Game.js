@@ -4,9 +4,11 @@ import Phaser from 'phaser';
 class Game extends Phaser.Scene {
   constructor() {
     super('game');
+    const counter;
   }
 
-  init() {}
+  init() {
+  }
 
   create() {
     var charby = this.add.image(100, 100, 'charby');
@@ -20,10 +22,18 @@ class Game extends Phaser.Scene {
     pizza3.setDisplaySize(60,60);
 
     pizza3.visible = false;
+
+    this.counter = 0;
   }
 
   update() {
-
+    if(counter == 900){
+      counter = 0;
+      console.log();
+    }
+    else{
+      counter++;
+    }
   }
 }
 
