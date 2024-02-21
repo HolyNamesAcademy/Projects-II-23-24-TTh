@@ -75,6 +75,7 @@ public class UserApiController {
 			System.out.println("Please enter a password.");
 			return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
 		}
+
 		if(user.getUsername()==null || user.getUsername().equals("")){
 			System.out.println("Please enter a username.");
 			return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
@@ -82,12 +83,20 @@ public class UserApiController {
 
 		List<User> userList = userRepository.findAll();
 		for (int i = 0; i<userList.size(); i++){
-			if(userList.get(i).getUsername().equals(user.getUsername()) && userList.get(i).getPassword().equals(user.getPassword())){
-				return new ResponseEntity<>(HttpStatus.ACCEPTED);
+			User current = userList.get(i);
+
+			if(current.getUsername().equals(user.getUsername())){
+				if (current.getPassword().equals(user.getPassword())) {
+					return new ResponseEntity<>(current, HttpStatus.ACCEPTED);
+				}
+
+				// Stop looking if they typed the password wrong.
+				break;
 			}
-			System.out.println("Your username and password do not match. Please re-enter your log-in information.");
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
+
+		System.out.println("Your username and password do not match. Please re-enter your log-in information.");
+		return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 	}
 
 }
