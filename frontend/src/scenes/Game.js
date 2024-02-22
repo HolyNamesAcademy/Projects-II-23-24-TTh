@@ -31,12 +31,24 @@ class Game extends Phaser.Scene {
     pizza3.setDisplaySize(60, 60);
 
     pizza3.visible = false;
+
+    var isClicking = false;
   }
 
   update() {
     const keys = ['hearts'];
     this.charbyhearts.anims.play('hearts', true);
 
+    if(!this.input.activePointer.isDown && isClicking == true)
+    {
+      isClicking = false;
+    }
+    else if(this.input.activePointer.isDown && isClicking == false)
+    {
+      isClicking = true;
+    }
+    if(isClicking == true)
+    {
     let c = 0;
     this.input.on('pointerup', function (charbyhearts) {
       c++;
@@ -45,6 +57,7 @@ class Game extends Phaser.Scene {
       }
       this.charbyhearts.anims.play(keys[c], true);
     });
+    }
   }
 }
 
