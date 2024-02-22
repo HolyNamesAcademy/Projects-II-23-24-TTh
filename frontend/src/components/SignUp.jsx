@@ -66,7 +66,7 @@ function SignUp() {
     const user = await postData(userApi, data);
     // eslint-disable-next-line no-console
     console.log(user);
-  }
+  };
 
   const handleSubmit = (e) => {
     // prevent page from reloading when submitting form.
@@ -78,7 +78,7 @@ function SignUp() {
     setSubmitted(true);
     setError(false);
 
-    createUser()
+    createUser();
   };
 
   const successMessage = () => (
@@ -86,6 +86,7 @@ function SignUp() {
       <h1>
         {' '}
         User
+        {' '}
         {name}
         {' '}
         registered successfully!
