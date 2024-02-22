@@ -11,7 +11,8 @@ class Bootstrap extends Phaser.Scene {
 
   preload() {
     // Load additional assets here.
-    this.load.spritesheet('charbyhearts', '/static/charbyhearts-sprite.png', { frameWidth: 19, frameHeight: 22 });
+    this.load.spritesheet('charbyhearts', '/static/charbyhearts-sprite.png', { frameWidth: 960, frameHeight: 400 });
+    this.load.spritesheet('brawler', '/static/brawler48x48.png', { frameWidth: 48, frameHeight: 48 });
     this.load.image('charby', '/static/charby3.png', { frameWidth: 11, frameHeight: 14 });
     this.load.image('pizza', '/static/pizza2.png', { frameWidth: 10, frameHeight: 10 });
   }
