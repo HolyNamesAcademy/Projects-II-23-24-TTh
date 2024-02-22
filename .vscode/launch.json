@@ -5,13 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "command": "npm start",
+            "command": "npm install && npm start",
             "name": "Run Frontend",
             "request": "launch",
             "type": "node-terminal",
             "cwd": "${workspaceFolder}/frontend",
             "windows": {
-                "bashPath": "C:\\Windows\\sysnative\\bash.exe"
+                "bashPath": "C:\\Program Files\\Git\\bin\\bash.exe"
             }
         },
         {
