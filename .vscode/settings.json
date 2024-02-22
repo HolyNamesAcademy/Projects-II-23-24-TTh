@@ -1,0 +1,17 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": [
+    "javascript"
+  ],
+  "eslint.workingDirectories": [
+    "./frontend/"
+  ],
+  "eslint.lintTask.enable": true,
+  "eslint.options": { "overrideConfigFile": "./frontend/.eslintrc.js" }
+  ,
+  "eslint.run": "onSave",
+  "files.autoSave": "onFocusChange",
+  "eslint.debug": true
+}
