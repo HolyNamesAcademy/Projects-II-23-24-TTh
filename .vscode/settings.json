@@ -31,5 +31,6 @@
       "icon": "terminal-bash"
     }
   },
-  "terminal.integrated.defaultProfile.windows": "GitBash"
+  "terminal.integrated.defaultProfile.windows": "GitBash",
+  "java.compile.nullAnalysis.mode": "automatic"
 }
