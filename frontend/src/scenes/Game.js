@@ -23,6 +23,19 @@ class Game extends Phaser.Scene {
 
     // Animation set
     this.anims.create({
+      key: 'normal',
+      frames:this.anims.generateFrameNumbers('charby', { frames: [0]}),
+      frameRate: 8,
+    });
+
+    this.anims.create({
+      key: 'hearts',
+      frames: this.anims.generateFrameNumbers('charbyhearts', { frames: [0, 1, 2]}),
+      frameRate: 8,
+      repeat: -1,
+    });
+
+    this.anims.create({
       key: 'walk',
       frames: this.anims.generateFrameNumbers('brawler', { frames: [0, 1, 2, 3] }),
       frameRate: 8,
@@ -80,11 +93,17 @@ class Game extends Phaser.Scene {
       frameRate: 8,
     });
 
-    const keys = ['walk', 'idle', 'kick', 'punch', 'jump', 'jumpkick', 'win', 'die'];
+    // const keys = ['walk', 'idle', 'kick', 'punch', 'jump', 'jumpkick', 'win', 'die'];
+    const keys = ['normal', 'hearts'];
 
     const charby = this.add.sprite(100, 100);
-    charby.setScale(4);
-    charby.play('walk');
+    charby.setScale(2);
+    //if (this.input.on('pointerdown', () =>  {
+        //charby.play('hearts');
+    //})
+    //);
+
+    charby.play('normal');
 
     let c = 0;
     this.input.on('pointerdown', () => {
