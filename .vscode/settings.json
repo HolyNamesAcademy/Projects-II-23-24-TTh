@@ -5,16 +5,13 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "eslint.validate": [
-    "javascript"
-  ],
+  "eslint.validate": ["react", "jsx", "vue", "html","javascript", "typescript"],
   "eslint.workingDirectories": [
     "./frontend/"
   ],
   "eslint.lintTask.enable": true,
   "eslint.run": "onSave",
   "files.autoSave": "onFocusChange",
-  "eslint.debug": true,
   "terminal.integrated.profiles.windows": {
     "PowerShell": {
       "source": "PowerShell",
