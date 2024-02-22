@@ -11,7 +11,7 @@
             "type": "node-terminal",
             "cwd": "${workspaceFolder}/frontend",
             "windows": {
-                "bashPath": "C:\\Windows\\sysnative\\bash.exe"
+                "bashPath": "C:\\Program Files\\Git\\bin\\bash.exe"
             }
         },
         {
