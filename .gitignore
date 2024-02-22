@@ -21,9 +21,6 @@ out/
 /nbdist/
 /.nb-gradle/
 
-### VS Code ###
-.vscode/
-
 # misc
 .DS_Store
 .env.local
