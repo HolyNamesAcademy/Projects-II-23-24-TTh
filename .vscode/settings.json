@@ -12,7 +12,6 @@
     "./frontend/"
   ],
   "eslint.lintTask.enable": true,
-  "eslint.options": { "overrideConfigFile": "./frontend/.eslintrc.js" },
   "eslint.run": "onSave",
   "files.autoSave": "onFocusChange",
   "eslint.debug": true,
@@ -35,5 +34,5 @@
       "icon": "terminal-bash"
     }
   },
-  "terminal.integrated.defaultProfile.windows": "GitBash",
+  "terminal.integrated.defaultProfile.windows": "GitBash"
 }
