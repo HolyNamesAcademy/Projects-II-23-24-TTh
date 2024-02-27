@@ -1,6 +1,7 @@
 {
   "cSpell.words": [
-    "Hnamagotchi"
+    "Hnamagotchi",
+    "spritesheet"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
