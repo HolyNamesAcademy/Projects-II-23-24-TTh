@@ -24,13 +24,13 @@ class Game extends Phaser.Scene {
     // Animation set
     this.anims.create({
       key: 'normal',
-      frames:this.anims.generateFrameNumbers('charby', { frames: [0]}),
+      frames: this.anims.generateFrameNumbers('charby', { frames: [0] }),
       frameRate: 8,
     });
 
     this.anims.create({
       key: 'hearts',
-      frames: this.anims.generateFrameNumbers('charbyhearts', { frames: [0, 1, 2]}),
+      frames: this.anims.generateFrameNumbers('charbyhearts', { frames: [0, 1, 2] }),
       frameRate: 8,
       repeat: -1,
     });
@@ -98,10 +98,10 @@ class Game extends Phaser.Scene {
 
     const charby = this.add.sprite(100, 100);
     charby.setScale(2);
-    //if (this.input.on('pointerdown', () =>  {
-        //charby.play('hearts');
-    //})
-    //);
+    // if (this.input.on('pointerdown', () =>  {
+    // charby.play('hearts');
+    // })
+    // );
 
     charby.play('normal');
 
