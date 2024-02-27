@@ -9,7 +9,7 @@ class Game extends Phaser.Scene {
   init() {}
 
   create() {
-    this.add.image(100, 200, 'charby');
+    this.add.image(100, 100, 'charby').setScale(0.5);
   }
 
   update() {}
