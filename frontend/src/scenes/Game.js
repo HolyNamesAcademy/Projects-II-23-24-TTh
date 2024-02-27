@@ -25,93 +25,25 @@ class Game extends Phaser.Scene {
     this.anims.create({
       key: 'normal',
       frames: this.anims.generateFrameNumbers('charby', { frames: [0] }),
-      frameRate: 8,
+      frameRate: 0,
+      repeat: -1,
     });
 
     this.anims.create({
       key: 'hearts',
-      frames: this.anims.generateFrameNumbers('charbyhearts', { frames: [0, 1, 2] }),
-      frameRate: 8,
+      frames: this.anims.generateFrameNumbers('charby', { frames: [3, 4, 5] }),
+      frameRate: 2,
       repeat: -1,
     });
-
-    this.anims.create({
-      key: 'walk',
-      frames: this.anims.generateFrameNumbers('brawler', { frames: [0, 1, 2, 3] }),
-      frameRate: 8,
-      repeat: -1,
-    });
-
-    this.anims.create({
-      key: 'idle',
-      frames: this.anims.generateFrameNumbers('brawler', { frames: [5, 6, 7, 8] }),
-      frameRate: 8,
-      repeat: -1,
-    });
-
-    this.anims.create({
-      key: 'kick',
-      frames: this.anims.generateFrameNumbers('brawler', { frames: [10, 11, 12, 13, 10] }),
-      frameRate: 8,
-      repeat: -1,
-      repeatDelay: 2000,
-    });
-
-    this.anims.create({
-      key: 'punch',
-      frames: this.anims.generateFrameNumbers('brawler', { frames: [15, 16, 17, 18, 17, 15] }),
-      frameRate: 8,
-      repeat: -1,
-      repeatDelay: 2000,
-    });
-
-    this.anims.create({
-      key: 'jump',
-      frames: this.anims.generateFrameNumbers('brawler', { frames: [20, 21, 22, 23] }),
-      frameRate: 8,
-      repeat: -1,
-    });
-
-    this.anims.create({
-      key: 'jumpkick',
-      frames: this.anims.generateFrameNumbers('brawler', { frames: [20, 21, 22, 23, 25, 23, 22, 21] }),
-      frameRate: 8,
-      repeat: -1,
-    });
-
-    this.anims.create({
-      key: 'win',
-      frames: this.anims.generateFrameNumbers('brawler', { frames: [30, 31] }),
-      frameRate: 8,
-      repeat: -1,
-      repeatDelay: 2000,
-    });
-
-    this.anims.create({
-      key: 'die',
-      frames: this.anims.generateFrameNumbers('brawler', { frames: [35, 36, 37] }),
-      frameRate: 8,
-    });
-
-    // const keys = ['walk', 'idle', 'kick', 'punch', 'jump', 'jumpkick', 'win', 'die'];
-    const keys = ['normal', 'hearts'];
 
     const charby = this.add.sprite(100, 100);
-    charby.setScale(2);
-    // if (this.input.on('pointerdown', () =>  {
-    // charby.play('hearts');
-    // })
-    // );
+    charby.setScale(0.5);
 
     charby.play('normal');
 
-    let c = 0;
     this.input.on('pointerdown', () => {
-      c += 1;
-      if (c === keys.length) {
-        c = 0;
-      }
-      charby.play(keys[c]);
+      charby.play('hearts');
+      charby.playAfterRepeat('normal', 3);
     });
   }
 
