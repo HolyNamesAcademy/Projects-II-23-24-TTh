@@ -1,16 +1,26 @@
+import { useState } from 'react';
 import HomePageButton from '../components/HomePageButton';
 import PhaserGame from '../components/PhaserGame';
 import FeedButton from '../components/FeedButton';
 import FoodAlert from '../components/FoodAlert';
 
 function HomePage() {
+  const [showFoodAlert, setShowFoodAlert] = useState(false);
+
+  function feed() {
+    setShowFoodAlert(true);
+    setTimeout(() => {
+      setShowFoodAlert(false);
+    }, 1000);
+  }
+
   return (
-    <div>
-      <FoodAlert />
+    <>
+      <FoodAlert show={showFoodAlert} />
       <PhaserGame />
-      <FeedButton />
+      <FeedButton feed={feed} />
       <HomePageButton />
-    </div>
+    </>
   );
 }
 

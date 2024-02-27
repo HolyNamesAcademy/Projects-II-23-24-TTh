@@ -6,7 +6,7 @@ import './ProfilePicture.css';
 
 export default function LetterAvatars() {
   return (
-    <Stack class="icon" direction="row" spacing={2}>
+    <Stack className="icon" direction="row" spacing={2}>
       <Avatar sx={{ bgcolor: pink[500] }}>C</Avatar>
     </Stack>
   );

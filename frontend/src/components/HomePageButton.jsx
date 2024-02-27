@@ -7,7 +7,7 @@ function sendHeart() {}
 
 export default function OutlinedButtons() {
   return (
-    <Stack class="nav-buttons" direction="row" spacing={2}>
+    <Stack className="nav-buttons" direction="row" spacing={2}>
       <a href="store">
         <HomePageButton variant="outlined">
           🛒
