@@ -21,4 +21,6 @@ const config = {
   scene: [Bootstrap, Game],
 };
 
-export default new Phaser.Game(config);
+export default function createGame() {
+  return new Phaser.Game(config);
+}
