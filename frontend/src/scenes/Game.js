@@ -31,9 +31,22 @@ class Game extends Phaser.Scene {
 
     this.anims.create({
       key: 'hearts',
-      frames: this.anims.generateFrameNumbers('charby', { frames: [3, 4, 5] }),
+      frames: this.anims.generateFrameNumbers('charby', { frames: [12, 13, 14] }),
       frameRate: 2,
       repeat: -1,
+    });
+
+    this.anims.create({
+      key: 'deflate',
+      frames: this.anims.generateFrameNumbers('charby2', { frames: [1, 2, 4, 5] }),
+      frameRate: 1,
+      repeat: -1,
+    });
+
+    this.anims.create({
+      key: 'drink',
+      frames: this.anims.generateFrameNumbers('charby2', { frames: [6, 8, 9, 10] }),
+      frameRate: 2,
     });
 
     const charby = this.add.sprite(100, 100);
@@ -41,44 +54,15 @@ class Game extends Phaser.Scene {
 
     charby.play('normal');
 
-<<<<<<< HEAD
-    pizza3.visible = false;
-
-    var isClicking = false;
-  }
-
-  update() {
-    const keys = ['hearts'];
-    this.charbyhearts.anims.play('hearts', true);
-
-    if(!this.input.activePointer.isDown && isClicking == true)
-    {
-      isClicking = false;
-    }
-    else if(this.input.activePointer.isDown && isClicking == false)
-    {
-      isClicking = true;
-    }
-    if(isClicking == true)
-    {
-    let c = 0;
-    this.input.on('pointerup', function (charbyhearts) {
-      c++;
-      if (c === keys.length) {
-        c = 0;
-      }
-      this.charbyhearts.anims.play(keys[c], true);
-    });
-    }
-=======
+    // pet anim
     this.input.on('pointerdown', () => {
       charby.play('hearts');
       charby.playAfterRepeat('normal', 3);
     });
+
   }
 
   update() {
->>>>>>> 6752138e0a555b017aa1fd82a586c9e3ca5fc3ff
   }
 }
 
