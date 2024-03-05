@@ -9,7 +9,7 @@ export default function SimpleAlert({ show }) {
 
   return (
     <Alert icon={<CheckIcon fontSize="inherit" />} severity="success">
-      Here is a gentle confirmation that your action was successful.
+      Your Charby is full
     </Alert>
   );
 }
