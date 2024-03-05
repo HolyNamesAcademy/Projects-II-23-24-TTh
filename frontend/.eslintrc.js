@@ -26,5 +26,11 @@ module.exports = {
         'class-methods-use-this': 'off',
       },
     },
+    {
+      files: ['./src/store/*'],
+      rules: {
+        'no-param-reassign': 'off',
+      },
+    },
   ],
 };
