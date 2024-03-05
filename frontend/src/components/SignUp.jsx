@@ -4,10 +4,10 @@ import CardContent from '@mui/material/CardContent';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-const userApi = '/api/users/UserApiController';
+const userApi = '/api/users/signup';
 // https://www.knowledgehut.com/blog/web-development/building-a-sign-up-form-using-react
 // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-
+// add username field
 function SignUp() {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -68,19 +68,6 @@ function SignUp() {
     console.log(user);
   };
 
-  const handleSubmit = (e) => {
-    // prevent page from reloading when submitting form.
-    e.preventDefault();
-    if (name === '' || email === '' || password === '') {
-      setError(true);
-      return;
-    }
-    setSubmitted(true);
-    setError(false);
-
-    createUser();
-  };
-
   const successMessage = () => (
     <div>
       <h1>
@@ -95,31 +82,55 @@ function SignUp() {
     </div>
   );
 
+  const handleSubmit = (e) => {
+    // prevent page from reloading when submitting form.
+    e.preventDefault();
+    if (name === '' || email === '' || password === '') {
+      setError(true);
+      return;
+    }
+    setSubmitted(true);
+    setError(false);
+
+    createUser();
+  };
+
   const errorMessage = () => (
     <div>
       <h1> Failed to submit. Please try again! </h1>
     </div>
   );
 
+  function isSubmitted() {
+    const isSubmit = submitted;
+    if (isSubmit) {
+      return successMessage();
+    }
+    if (error) {
+      return errorMessage();
+    }
+    return '';
+  }
+
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
         <div className="Form">
-          {errorMessage()}
-          {successMessage()}
+          {isSubmitted()}
           {submitted}
           {error}
         </div>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <TextField id="Username" label="Username" variant="outlined" name="Username" value={name} onChange={handleName} />
           <TextField id="Email" label="Email" variant="outlined" name="Email" value={email} onChange={handleEmail} />
           <TextField id="Password" label="Password" variant="outlined" name="Password" value={password} onChange={handlePassword} />
-          <Button variant="contained" type="submit" onSubmit={handleSubmit}>Submit</Button>
+          <Button variant="contained" type="submit">Submit</Button>
         </form>
       </CardContent>
     </Card>
   );
 }
+// redirect to login page when done
 
 export default SignUp;
