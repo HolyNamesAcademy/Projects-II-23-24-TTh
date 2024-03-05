@@ -1,17 +1,26 @@
-import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+import {
+  getName,
+  getGreeting,
+  setName,
+  setGreeting,
+} from '../store/greeting';
+
 const greetingApi = '/api/greeting';
 
 function Hello() {
-  const [greeting, setGreeting] = useState('');
-  const [name, setName] = useState('');
+  const name = useSelector(getName);
+  const greeting = useSelector(getGreeting);
 
-  const getGreeting = async () => {
+  const dispatch = useDispatch();
+
+  const fetchGreeting = async () => {
     // Create the request path
     let path = greetingApi;
     if (name) {
@@ -25,18 +34,18 @@ function Hello() {
     const data = await response.json();
 
     // Set the greeting value.
-    setGreeting(data.greeting);
+    dispatch(setGreeting(data.greeting));
   };
 
   const handleChange = (event) => {
     const newName = event.target.value; // what the user typed in
-    setName(newName);
+    dispatch(setName(newName));
   };
 
   const handleSubmit = (e) => {
     // prevent page from reloading when submitting form.
     e.preventDefault();
-    getGreeting();
+    fetchGreeting();
   };
 
   return (

@@ -1,4 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+
+import store from './store';
+
 import DefaultLayout from './layouts/DefaultLayout';
 import HomePage from './pages/HomePage';
 import OtherPage from './pages/OtherPage';
@@ -6,7 +10,7 @@ import NoMatchPage from './pages/NoMatchPage';
 
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       {/* Routes nest inside one another. Nested route paths build upon
       parent route paths, and nested route elements render inside
       parent route elements. See the note about <Outlet> in DefaultLayout. */}
@@ -21,7 +25,7 @@ function App() {
           <Route path="*" element={<NoMatchPage />} />
         </Route>
       </Routes>
-    </div>
+    </Provider>
   );
 }
 
