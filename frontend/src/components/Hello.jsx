@@ -9,43 +9,28 @@ import {
   getName,
   getGreeting,
   setName,
-  setGreeting,
+  fetchGreeting,
 } from '../store/greeting';
 
-const greetingApi = '/api/greeting';
-
 function Hello() {
+  // Get the two values we need to display, from the store.
   const name = useSelector(getName);
   const greeting = useSelector(getGreeting);
 
+  // This function will let us dispatch changes to the store.
   const dispatch = useDispatch();
 
-  const fetchGreeting = async () => {
-    // Create the request path
-    let path = greetingApi;
-    if (name) {
-      path += `?name=${name}`;
-    }
-
-    // Make the request to the Java API
-    const response = await fetch(path);
-
-    // Parse the response from a string into json.
-    const data = await response.json();
-
-    // Set the greeting value.
-    dispatch(setGreeting(data.greeting));
-  };
-
+  // This function is called whenever the user types in the field.
   const handleChange = (event) => {
     const newName = event.target.value; // what the user typed in
     dispatch(setName(newName));
   };
 
+  // This function is called when the form is submitted.
   const handleSubmit = (e) => {
     // prevent page from reloading when submitting form.
     e.preventDefault();
-    fetchGreeting();
+    dispatch(fetchGreeting);
   };
 
   return (
