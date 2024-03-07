@@ -10,19 +10,8 @@ class Game extends Phaser.Scene {
   }
 
   create() {
-    this.anims.create({
-      key: 'hearts',
-      frames: this.anims.generateFrameNumbers('charbyhearts', { start: 0, end: 2 }),
-      frameRate: 4,
-    });
-
-    // this.keys = ['hearts'];
-    this.charbyhearts = this.add.sprite(100, 100, 'charbyhearts');
-    this.charbyhearts.setScale(8);
-
-    const charby1 = this.add.image(100, 120, 'charby');
-    charby1.setDisplaySize(200, 250);
-    // charby1.setScale(8);
+    // const charby1 = this.add.image(100, 120, 'charby');
+    // charby1.setDisplaySize(200, 250);
 
     const pizza1 = this.add.image(20, 20, 'pizza');
     pizza1.setDisplaySize(60, 60);
@@ -31,25 +20,56 @@ class Game extends Phaser.Scene {
     const pizza3 = this.add.image(60, 20, 'pizza');
     pizza3.setDisplaySize(60, 60);
 
-    pizza3.visible = false;
+    // pizza3.visible = false;
+    // make array for pizzas
 
-    this.counter = 0;
+    // Animation set
+    this.anims.create({
+      key: 'normal',
+      frames: this.anims.generateFrameNumbers('charby', { frames: [0] }),
+      frameRate: 0,
+      repeat: -1,
+    });
+
+    this.anims.create({
+      key: 'hearts',
+      frames: this.anims.generateFrameNumbers('charby', { frames: [12, 13, 14] }),
+      frameRate: 2,
+      repeat: -1,
+    });
+
+    this.anims.create({
+      key: 'deflate',
+      frames: this.anims.generateFrameNumbers('charby', { frames: [1, 2, 3, 4] }),
+      frameRate: 1,
+      repeat: -1,
+    });
+
+    this.anims.create({
+      key: 'drink',
+      frames: this.anims.generateFrameNumbers('charby', { frames: [8, 9, 10, 11] }),
+      frameRate: 2,
+    });
+
+    this.anims.create({
+      key: 'food',
+      frames: this.anims.generateFrameNumbers('charby', { frames: [5, 6, 7] }),
+      frameRate: 2,
+    });
+
+    const charby = this.add.sprite(96, 96);
+    charby.setScale(6);
+
+    charby.play('normal');
+
+    // pet anim
+    this.input.on('pointerdown', () => {
+      charby.play('hearts');
+      charby.playAfterRepeat('normal', 3);
+    });
   }
 
   update() {
-
-
-    const keys = ['hearts'];
-    this.charbyhearts.anims.play('hearts', true);
-
-    let c = 0;
-    this.input.on('pointerup', function (charbyhearts) {
-      c++;
-      if (c === keys.length) {
-        c = 0;
-      }
-      this.charbyhearts.anims.play(keys[c], true);
-    });
   }
 }
 
