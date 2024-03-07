@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import charbyReducer from './charby';
+import greetingReducer from './greeting';
 
 const store = configureStore({
   reducer: {
-    charby: charbyReducer,
+    greeting: greetingReducer,
   },
 });
 

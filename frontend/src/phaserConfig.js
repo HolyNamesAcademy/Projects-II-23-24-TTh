@@ -7,8 +7,8 @@ const config = {
   parent: 'phaser-container',
   scale: {
     mode: Phaser.AUTO,
-    width: 200,
-    height: 200,
+    width: 192,
+    height: 192,
   },
   backgroundColor: '#E9D3FF',
   physics: {
