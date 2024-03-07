@@ -20,6 +20,7 @@ class Game extends Phaser.Scene {
     pizza3.setDisplaySize(60, 60);
 
     // pizza3.visible = false;
+    // make array for pizzas
 
     // Animation set
     this.anims.create({
@@ -38,14 +39,20 @@ class Game extends Phaser.Scene {
 
     this.anims.create({
       key: 'deflate',
-      frames: this.anims.generateFrameNumbers('charby', { frames: [1, 2, 4, 5] }),
+      frames: this.anims.generateFrameNumbers('charby', { frames: [1, 2, 3, 4] }),
       frameRate: 1,
       repeat: -1,
     });
 
     this.anims.create({
       key: 'drink',
-      frames: this.anims.generateFrameNumbers('charby', { frames: [6, 8, 9, 10] }),
+      frames: this.anims.generateFrameNumbers('charby', { frames: [8, 9, 10, 11] }),
+      frameRate: 2,
+    });
+
+    this.anims.create({
+      key: 'food',
+      frames: this.anims.generateFrameNumbers('charby', { frames: [5, 6, 7] }),
       frameRate: 2,
     });
 
