@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import DefaultLayout from './layouts/DefaultLayout';
 import HomePage from './pages/HomePage';
 import OtherPage from './pages/OtherPage';
+import UserLoginPage from './pages/UserLoginPage';
 import NoMatchPage from './pages/NoMatchPage';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<DefaultLayout />}>
           <Route index element={<HomePage />} />
           <Route path="/other" element={<OtherPage />} />
+          <Route path="/login" element={<UserLoginPage />} />
 
           {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
