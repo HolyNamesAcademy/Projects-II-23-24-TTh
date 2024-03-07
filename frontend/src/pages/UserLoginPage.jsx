@@ -16,13 +16,29 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 
-function userLogin() {
+import { useState } from 'react';
+
+function UserLogin() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (e) => {
+    // prevent page from reloading when submitting form.
+    e.preventDefault();
+
+    console.log({ username, password });
+  };
+
   return (
     <div>
       <h1> Welcome to HNAMAGOTCHI! </h1>
       <h2>Please login! </h2>
-      <TextField id="username" label="Username" variant="outlined" />
-      <TextField id="password" label="Password" variant="outlined" />
+
+      <form onSubmit={handleSubmit}>
+        <TextField id="username" label="Username" variant="outlined" value={username} onChange={setUsername}/>
+        <TextField id="password" label="Password" variant="outlined" value={password} onChange={setPassword} />
+        <Button variant="contained" type="submit">Login</Button>
+      </form>
 
       <h2> First time here? Sign Up!</h2>
       <Button variant="outlined">
@@ -38,4 +54,4 @@ function userLogin() {
 // login  works on the backend then it should route to home page
 // how to connect backend to frontend?
 
-export default userLogin;
+export default UserLogin;
