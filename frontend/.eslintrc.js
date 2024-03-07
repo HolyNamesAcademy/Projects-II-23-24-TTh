@@ -7,6 +7,8 @@ module.exports = {
   ],
   rules: {
     'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
+    'react/jsx-no-bind': 'off',
     'linebreak-style': 'off',
     'no-plusplus': 'off',
   },
@@ -22,6 +24,12 @@ module.exports = {
       files: ['./src/scenes/*'],
       rules: {
         'class-methods-use-this': 'off',
+      },
+    },
+    {
+      files: ['./src/store/*'],
+      rules: {
+        'no-param-reassign': 'off',
       },
     },
   ],
