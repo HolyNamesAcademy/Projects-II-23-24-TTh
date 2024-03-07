@@ -78,8 +78,6 @@ class Game extends Phaser.Scene {
       // eslint-disable-next-line no-param-reassign
       pizza.visible = hunger > index;
     });
-    // const charby1 = this.add.image(100, 120, 'charby');
-    // charby1.setDisplaySize(200, 250);
   }
 
   update() {
