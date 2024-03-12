@@ -1,15 +1,28 @@
-import Hello from '../components/Hello';
+import { useState } from 'react';
+import HomePageButton from '../components/HomePageButton';
 import PhaserGame from '../components/PhaserGame';
+import FeedButton from '../components/FeedButton';
+import FoodAlert from '../components/FoodAlert';
+import CharbyHeader from '../components/CharbyHeader';
 
-// This is the home page component. Change it to make
-// changes to the home page.
 function HomePage() {
+  const [showFoodAlert, setShowFoodAlert] = useState(false);
+
+  function feed() {
+    setShowFoodAlert(true);
+    setTimeout(() => {
+      setShowFoodAlert(false);
+    }, 1000);
+  }
+
   return (
-    // You can put other components here.
-    <div>
+    <>
+      <FoodAlert show={showFoodAlert} />
+      <CharbyHeader />
       <PhaserGame />
-      <Hello />
-    </div>
+      <FeedButton feed={feed} />
+      <HomePageButton />
+    </>
   );
 }
 

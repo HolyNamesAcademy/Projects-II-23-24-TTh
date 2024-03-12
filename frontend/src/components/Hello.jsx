@@ -1,42 +1,36 @@
-import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const greetingApi = '/api/greeting';
+import {
+  getName,
+  getGreeting,
+  setName,
+  fetchGreeting,
+} from '../store/greeting';
 
 function Hello() {
-  const [greeting, setGreeting] = useState('');
-  const [name, setName] = useState('');
+  // Get the two values we need to display, from the store.
+  const name = useSelector(getName);
+  const greeting = useSelector(getGreeting);
 
-  const getGreeting = async () => {
-    // Create the request path
-    let path = greetingApi;
-    if (name) {
-      path += `?name=${name}`;
-    }
+  // This function will let us dispatch changes to the store.
+  const dispatch = useDispatch();
 
-    // Make the request to the Java API
-    const response = await fetch(path);
-
-    // Parse the response from a string into json.
-    const data = await response.json();
-
-    // Set the greeting value.
-    setGreeting(data.greeting);
-  };
-
+  // This function is called whenever the user types in the field.
   const handleChange = (event) => {
     const newName = event.target.value; // what the user typed in
-    setName(newName);
+    dispatch(setName(newName));
   };
 
+  // This function is called when the form is submitted.
   const handleSubmit = (e) => {
     // prevent page from reloading when submitting form.
     e.preventDefault();
-    getGreeting();
+    dispatch(fetchGreeting);
   };
 
   return (
