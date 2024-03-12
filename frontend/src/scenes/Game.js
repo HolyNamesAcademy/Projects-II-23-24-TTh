@@ -1,25 +1,26 @@
 import Phaser from 'phaser';
+import store from '.../store';
 
 // This is the core "scene" that calls all other scenes.
 class Game extends Phaser.Scene {
   constructor() {
     super('game');
+    this.hunger = 0;
+    this.pizzas = [];
   }
 
   init() {}
 
   create() {
-    // const charby1 = this.add.image(100, 120, 'charby');
-    // charby1.setDisplaySize(200, 250);
+    this.pizzas = [
+      this.add.image(20, 20, 'pizza').setDisplaySize(60, 60),
+      this.add.image(40, 20, 'pizza').setDisplaySize(60, 60),
+      this.add.image(60, 20, 'pizza').setDisplaySize(60, 60),
+    ];
 
-    const pizza1 = this.add.image(20, 20, 'pizza');
-    pizza1.setDisplaySize(60, 60);
-    const pizza2 = this.add.image(40, 20, 'pizza');
-    pizza2.setDisplaySize(60, 60);
-    const pizza3 = this.add.image(60, 20, 'pizza');
-    pizza3.setDisplaySize(60, 60);
+    this.stateUpdated();
 
-    // pizza3.visible = false;
+    store.subscribe(() => this.stateUpdated());
 
     // Animation set
     this.anims.create({
@@ -38,16 +39,22 @@ class Game extends Phaser.Scene {
 
     this.anims.create({
       key: 'deflate',
-      frames: this.anims.generateFrameNumbers('charby', { frames: [1, 2, 4, 5] }),
+      frames: this.anims.generateFrameNumbers('charby', { frames: [1, 2, 3, 4] }),
       frameRate: 1,
       repeat: -1,
     });
 
     this.anims.create({
       key: 'drink',
-      frames: this.anims.generateFrameNumbers('charby', { frames: [6, 8, 9, 10] }),
+      frames: this.anims.generateFrameNumbers('charby', { frames: [8, 9, 10, 11] }),
       frameRate: 2,
     });
+
+    this.anims.create({
+          key: 'feed',
+          frames: this.anims.generateFrameNumbers('charby', { frames: [5, 6, 7] }),
+          frameRate: 2,
+        });
 
     const charby = this.add.sprite(96, 96);
     charby.setScale(6);
@@ -58,6 +65,20 @@ class Game extends Phaser.Scene {
     this.input.on('pointerdown', () => {
       charby.play('hearts');
       charby.playAfterRepeat('normal', 3);
+    });
+  }
+
+  stateUpdated() {
+    const state = store.getState();
+    this.updatePizza(state.charby.hunger);
+  }
+
+  updatePizza(hunger) {
+    if (this.hunger === hunger) {
+      return;
+    }
+    this.pizzas.forEach((pizza, index) => {
+      pizza.visible = hunger > index;
     });
   }
 
