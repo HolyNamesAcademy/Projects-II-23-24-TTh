@@ -12,6 +12,7 @@ function SignUp() {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
 
@@ -42,6 +43,11 @@ function SignUp() {
     setSubmitted(false);
   };
 
+  const handleUsername = (e) => {
+    setUsername(e.target.value);
+    setSubmitted(false);
+  };
+
   // Handling the email change
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -57,6 +63,7 @@ function SignUp() {
   const createUser = async () => {
     const data = {
       name,
+      username,
       password,
       email,
     };
@@ -122,9 +129,10 @@ function SignUp() {
         </div>
 
         <form onSubmit={handleSubmit}>
-          <TextField id="Username" label="Username" variant="outlined" name="Username" value={name} onChange={handleName} />
-          <TextField id="Email" label="Email" variant="outlined" name="Email" value={email} onChange={handleEmail} />
-          <TextField id="Password" label="Password" variant="outlined" name="Password" value={password} onChange={handlePassword} />
+          <TextField required id="Username" label="Username" variant="outlined" name="Username" value={name} onChange={handleUsername} />
+          <TextField required id="Name" label="Name" variant="outlined" name="Name" value={name} onChange={handleName} />
+          <TextField required id="HNA Email" label="Email" variant="outlined" name="Email" value={email} onChange={handleEmail} />
+          <TextField required id="Password" label="Password" variant="outlined" name="Password" value={password} onChange={handlePassword} />
           <Button variant="contained" type="submit">Submit</Button>
         </form>
       </CardContent>
