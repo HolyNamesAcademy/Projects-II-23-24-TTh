@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import DefaultLayout from './layouts/DefaultLayout';
 import HomePage from './pages/HomePage';
 import OtherPage from './pages/OtherPage';
+import WelcomePage from './pages/WelcomePage';
 import NoMatchPage from './pages/NoMatchPage';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<DefaultLayout />}>
           <Route index element={<HomePage />} />
+          <Route path="/welcome" element={<WelcomePage />} />
           <Route path="/other" element={<OtherPage />} />
 
           {/* Using path="*"" means "match anything", so this route
