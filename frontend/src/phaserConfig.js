@@ -5,6 +5,7 @@ import { Bootstrap, Game } from './scenes';
 const config = {
   type: Phaser.AUTO,
   parent: 'phaser-container',
+  antialias: false,
   scale: {
     mode: Phaser.AUTO,
     width: 192,
