@@ -15,18 +15,40 @@
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import { useState } from 'react';
+
+import {
+  login,
+} from '../store/user';
+
 
 function UserLogin() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  
+  // This function will let us dispatch changes to the store.
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     // prevent page from reloading when submitting form.
     e.preventDefault();
 
     console.log({ username, password });
+
+    dispatch(login(username, password));
+  };
+
+  const handleChangeA = (event) => {
+    const newName = event.target.value; // what the user typed in
+    setUsername(newName);
+  };
+
+  const handleChangeB = (event) => {
+    const newName = event.target.value; // what the user typed in
+    setPassword(newName);
   };
 
   return (
@@ -35,8 +57,8 @@ function UserLogin() {
       <h2>Please login! </h2>
 
       <form onSubmit={handleSubmit}>
-        <TextField id="username" label="Username" variant="outlined" value={username} onChange={setUsername}/>
-        <TextField id="password" label="Password" variant="outlined" value={password} onChange={setPassword} />
+        <TextField required id="username" label="Username" variant="outlined" value={username} onChange={handleChangeA} />
+        <TextField required id="password" label="Password" variant="outlined" value={password} onChange={handleChangeB} />
         <Button variant="contained" type="submit">Login</Button>
       </form>
 
