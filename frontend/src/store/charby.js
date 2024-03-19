@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = { hunger: 1 };
+const initialState = { hunger: 0 };
 
 const charbySlice = createSlice({
   name: 'counter',
@@ -8,10 +8,10 @@ const charbySlice = createSlice({
   reducers: {
     feed(state) {
       state.hunger++;
-  },
-  setHungerLevel(state, hunger) {
-    state.hunger = hunger;
-  },
+    },
+    setHungerLevel(state, hunger) {
+      state.hunger = hunger;
+    },
   },
 });
 
