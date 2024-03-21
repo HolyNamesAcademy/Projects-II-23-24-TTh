@@ -2,45 +2,46 @@ package com.hna.webserver.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
-import java.time.DateTime;
+import java.time.LocalDateTime;
 
 
 @Entity
 @Table(name = "feedingtable")
-public class FeedingTable {
+public class Feeding {
 
   
-    @Column(charbyID = "CharbyID")
+    @Column(name = "CharbyID")
     private long CharbyID;
 
-    @Column(lastTimeFed = "lastTimeFed")
-    private DateTime lastTimeFed;
+    @Column(name = "lastTimeFed")
+    private LocalDateTime lastTimeFed;
 
-    @Column (hungerLevel="hungerLevel")
+    @Column (name ="hungerLevel")
     private int hungerLevel;
 
-    public FeedingTable() {
+    @ManyToOne
+    @JoinColumn (name = "CharbyID")
+    private Charby charby;
+    
 
-    }
-
-    public Charby(String id) {
-        this.CharbyID = id;
-        this.lastTimeFed = DateTime.now();
+    public Feeding(Long CharbyID, int hungerLevel) {
+        this.CharbyID = CharbyID;
+        this.lastTimeFed = LocalDateTime.now();
+        this.hungerLevel = hungerLevel;
     }
 
     public long getId() {
-        return id;    }
+        return CharbyID;    }
 
-    public String getLastTimeFed() {
+    public LocalDateTime getLastTimeFed() {
         return lastTimeFed;
     }
 
-    public void setLastTimeFed(DateTime lastTimeFed) {
+    public void setLastTimeFed(LocalDateTime lastTimeFed) {
         this.lastTimeFed = lastTimeFed;
     }
 
-    public String getHungerLevel(){
-        
+    public int getHungerLevel(){
         return hungerLevel;
     }
 
