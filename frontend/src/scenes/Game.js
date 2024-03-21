@@ -5,7 +5,7 @@ import store from '../store';
 class Game extends Phaser.Scene {
   constructor() {
     super('game');
-    this.hunger = 0;
+    this.hunger = -1;
     this.pizzas = [];
     this.charby = null;
   }
@@ -94,7 +94,6 @@ class Game extends Phaser.Scene {
   updateCharby(hunger) {
     if (hunger === 0) {
       // eslint-disable-next-line no-debugger
-      debugger;
       this.charby.play('deflate');
       this.charby.playAfterRepeat('deflate1', 0);
     }
