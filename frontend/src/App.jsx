@@ -8,6 +8,7 @@ import store from './store';
 import DefaultLayout from './layouts/DefaultLayout';
 import HomePage from './pages/HomePage';
 import OtherPage from './pages/OtherPage';
+import UserLoginPage from './pages/UserLoginPage';
 import NoMatchPage from './pages/NoMatchPage';
 import ChatPage from './pages/ChatPage';
 import GroceryStore from './pages/GroceryStore';
@@ -34,6 +35,7 @@ function App() {
             <Route path="/other" element={<OtherPage />} />
             <Route path="/chat" element={<ChatPage />} />
             <Route path="/store" element={<GroceryStore />} />
+            <Route path="/login" element={<UserLoginPage />} />
 
             {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
