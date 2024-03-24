@@ -18,9 +18,11 @@ export default function OutlinedButtons() {
           💬
         </HomePageButton>
       </a>
-      <HomePageButton variant="outlined" onClick={sendHeart}>
-        💗
-      </HomePageButton>
+      <div>
+        <HomePageButton variant="outlined" onClick={sendHeart}>
+          💗
+        </HomePageButton>
+      </div>
     </Stack>
   );
 }
