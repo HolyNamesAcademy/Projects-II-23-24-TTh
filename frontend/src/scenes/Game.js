@@ -72,7 +72,6 @@ class Game extends Phaser.Scene {
         this.charby.playAfterRepeat('normal', 3);
       }
     });
-    console.log(this.hunger);
 
     this.stateUpdated();
     store.subscribe(() => this.stateUpdated());
@@ -80,9 +79,9 @@ class Game extends Phaser.Scene {
 
   stateUpdated() {
     const state = store.getState();
-    this.hunger = state.charby.hunger;
     this.updatePizza(state.charby.hunger);
     this.updateCharby(state.charby.hunger);
+    this.hunger = state.charby.hunger;
   }
 
   updatePizza(hunger) {
