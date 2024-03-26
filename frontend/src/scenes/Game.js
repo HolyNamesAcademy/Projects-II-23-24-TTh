@@ -67,8 +67,10 @@ class Game extends Phaser.Scene {
 
     // pet anim
     this.input.on('pointerdown', () => {
-      this.charby.play('hearts');
-      this.charby.playAfterRepeat('normal', 3);
+      if (this.hunger > 0) {
+        this.charby.play('hearts');
+        this.charby.playAfterRepeat('normal', 3);
+      }
     });
 
     this.stateUpdated();
@@ -79,6 +81,7 @@ class Game extends Phaser.Scene {
     const state = store.getState();
     this.updatePizza(state.charby.hunger);
     this.updateCharby(state.charby.hunger);
+    this.hunger = state.charby.hunger;
   }
 
   updatePizza(hunger) {
