@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = { hunger: 0 };
+const initialState = { hunger: 1 };
 
 const charbySlice = createSlice({
-  name: 'counter',
+  name: 'charby',
   initialState,
   reducers: {
     feed(state) {
