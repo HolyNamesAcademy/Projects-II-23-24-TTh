@@ -1,15 +1,37 @@
-import Hello from '../components/Hello';
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import HomePageButton from '../components/HomePageButton';
 import PhaserGame from '../components/PhaserGame';
+import FeedButton from '../components/FeedButton';
+import FoodAlert from '../components/FoodAlert';
+import CharbyHeader from '../components/CharbyHeader';
 
-// This is the home page component. Change it to make
-// changes to the home page.
+import {
+  feed as feedStore,
+} from '../store/charby';
+
 function HomePage() {
+  const [showFoodAlert, setShowFoodAlert] = useState(false);
+
+  const hungerLevel = useSelector((state) => state.charby.hunger);
+  const dispatch = useDispatch();
+
+  function feed() {
+    dispatch(feedStore());
+    setShowFoodAlert(true);
+    setTimeout(() => {
+      setShowFoodAlert(false);
+    }, 1000);
+  }
+
   return (
-    // You can put other components here.
-    <div>
+    <>
+      <FoodAlert show={showFoodAlert} level={hungerLevel} />
+      <CharbyHeader />
       <PhaserGame />
-      <Hello />
-    </div>
+      <FeedButton feed={feed} />
+      <HomePageButton />
+    </>
   );
 }
 

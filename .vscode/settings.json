@@ -1,6 +1,8 @@
 {
   "cSpell.words": [
-    "Hnamagotchi"
+    "Charby",
+    "Hnamagotchi",
+    "spritesheet"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
@@ -31,5 +33,6 @@
       "icon": "terminal-bash"
     }
   },
-  "terminal.integrated.defaultProfile.windows": "GitBash"
+  "terminal.integrated.defaultProfile.windows": "GitBash",
+  "java.compile.nullAnalysis.mode": "automatic"
 }

@@ -5,10 +5,11 @@ import { Bootstrap, Game } from './scenes';
 const config = {
   type: Phaser.AUTO,
   parent: 'phaser-container',
+  antialias: false,
   scale: {
     mode: Phaser.AUTO,
-    width: 200,
-    height: 200,
+    width: 192,
+    height: 192,
   },
   backgroundColor: '#E9D3FF',
   physics: {
@@ -21,4 +22,6 @@ const config = {
   scene: [Bootstrap, Game],
 };
 
-export default new Phaser.Game(config);
+export default function createGame() {
+  return new Phaser.Game(config);
+}
