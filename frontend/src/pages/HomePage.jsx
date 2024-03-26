@@ -8,6 +8,7 @@ import CharbyHeader from '../components/CharbyHeader';
 
 import {
   feed as feedStore,
+  setHungerLevel,
 } from '../store/charby';
 
 function HomePage() {
@@ -23,6 +24,13 @@ function HomePage() {
       setShowFoodAlert(false);
     }, 1000);
   }
+
+  function lowerHungerLevel() {
+    console.log('lowering hunger level', hungerLevel - 1);
+    dispatch(setHungerLevel(hungerLevel - 1));
+  }
+
+  setInterval(lowerHungerLevel, 1000);
 
   return (
     <>
