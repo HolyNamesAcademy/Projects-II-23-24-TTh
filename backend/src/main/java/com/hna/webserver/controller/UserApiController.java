@@ -69,6 +69,7 @@ public class UserApiController {
 		String hashed = BCrypt.hashpw(pswd, BCrypt.gensalt());
 		user.setPassword(hashed);//
 		saveUser(user);//SAVES HASHED PW
+		System.out.println(user);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 
 	}
@@ -89,7 +90,7 @@ public class UserApiController {
 			User current = userList.get(i);
 
 			if(current.getUsername().equals(user.getUsername())){
-				if (BCrypt.checkpw(current.getPassword(), user.getPassword())) {
+				if (BCrypt.checkpw(user.getPassword(), current.getPassword())) {
 					return new ResponseEntity<>(current, HttpStatus.ACCEPTED);
 				}
 
