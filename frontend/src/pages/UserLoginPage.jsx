@@ -23,12 +23,10 @@ import {
   login,
 } from '../store/user';
 
-
 function UserLogin() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  
   // This function will let us dispatch changes to the store.
   const dispatch = useDispatch();
 
