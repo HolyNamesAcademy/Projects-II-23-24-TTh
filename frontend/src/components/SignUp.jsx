@@ -129,7 +129,7 @@ function SignUp() {
         </div>
 
         <form onSubmit={handleSubmit}>
-          <TextField required id="Username" label="Username" variant="outlined" name="Username" value={name} onChange={handleUsername} />
+          <TextField required id="Username" label="Username" variant="outlined" name="Username" value={username} onChange={handleUsername} />
           <TextField required id="Name" label="Name" variant="outlined" name="Name" value={name} onChange={handleName} />
           <TextField required id="HNA Email" label="Email" variant="outlined" name="Email" value={email} onChange={handleEmail} />
           <TextField required id="Password" label="Password" variant="outlined" name="Password" value={password} onChange={handlePassword} />

@@ -13,6 +13,8 @@ function SignUpPage() {
       <h1> Sign Up! </h1>
       <SignUp />
 
+      <p>Welcome to HNAmagotchi! </p>
+
       <Button variant="outlined">
         <Link to="/login">
           Login Page
