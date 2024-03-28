@@ -1,6 +1,8 @@
 // This is an example page component. Copy it to make
 // new pages. When you copy it, make sure to add a
 // route to the App.jsx file.
+import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 import SignUp from '../components/SignUp';
 
 function SignUpPage() {
@@ -10,10 +12,13 @@ function SignUpPage() {
     <div>
       <h1> Sign Up! </h1>
       <SignUp />
-      <p>
 
-        <button type="submit" value="Submit">Back</button>
-      </p>
+      <Button variant="outlined">
+        <Link to="/login">
+          Login Page
+        </Link>
+      </Button>
+
     </div>
 
   );
