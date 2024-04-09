@@ -3,6 +3,11 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { useDispatch } from 'react-redux';
+
+import {
+  signup,
+} from '../store/user';
 
 const userApi = '/api/users/signup';
 // https://www.knowledgehut.com/blog/web-development/building-a-sign-up-form-using-react
@@ -15,7 +20,8 @@ function SignUp() {
   const [username, setUsername] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
-
+  // This function will let us dispatch changes to the store.
+  const dispatch = useDispatch();
   // Make the request to the Java API
   // Example POST method implementation:
   const postData = async (url = '', data = {}) => {
@@ -99,6 +105,7 @@ function SignUp() {
     setSubmitted(true);
     setError(false);
 
+    dispatch(signup(username, name, email, password));
     createUser();
   };
 
@@ -132,7 +139,7 @@ function SignUp() {
           <TextField required id="Username" label="Username" variant="outlined" name="Username" value={username} onChange={handleUsername} />
           <TextField required id="Name" label="Name" variant="outlined" name="Name" value={name} onChange={handleName} />
           <TextField required id="HNA Email" label="Email" variant="outlined" name="Email" value={email} onChange={handleEmail} />
-          <TextField required id="Password" label="Password" variant="outlined" name="Password" value={password} onChange={handlePassword} />
+          <TextField password id="Password" label="Password" variant="outlined" name="Password" value={password} onChange={handlePassword} />
           <Button variant="contained" type="submit">Submit</Button>
         </form>
       </CardContent>
