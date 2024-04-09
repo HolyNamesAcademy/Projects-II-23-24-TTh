@@ -7,13 +7,15 @@ const charbySlice = createSlice({
   initialState,
   reducers: {
     feed(state) {
-      state.hunger++;
+      if (state.hunger < 3) {
+        state.hunger++;
+      }
     },
-    setHungerLevel(state, hunger) {
-      state.hunger = hunger;
+    setHungerLevel(state, action) {
+      state.hunger = action.payload;
     },
   },
 });
 
-export const { feed } = charbySlice.actions;
+export const { feed, setHungerLevel } = charbySlice.actions;
 export default charbySlice.reducer;
