@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Table(name = "feedingtable")
 public class Feeding {
 
-  
+
     @Column(name = "CharbyID")
     private long CharbyID;
 
@@ -22,7 +22,7 @@ public class Feeding {
     @ManyToOne
     @JoinColumn (name = "CharbyID")
     private Charby charby;
-    
+
 
     public Feeding(Long CharbyID, int hungerLevel) {
         this.CharbyID = CharbyID;
