@@ -23,12 +23,12 @@ import {
   login,
 } from '../store/user';
 
-
 function UserLogin() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
-  
   // This function will let us dispatch changes to the store.
   const dispatch = useDispatch();
 
@@ -44,17 +44,50 @@ function UserLogin() {
   const handleChangeA = (event) => {
     const newName = event.target.value; // what the user typed in
     setUsername(newName);
+    setSubmitted(false);
   };
 
   const handleChangeB = (event) => {
     const newName = event.target.value; // what the user typed in
     setPassword(newName);
+    setSubmitted(false);
   };
+
+  const errorMessage = () => (
+    <div>
+      <h1> Failed to submit. Please try again! </h1>
+    </div>
+  );
+
+  const successMessage = () => (
+    <div>
+      <h1> Success! You have logged in. </h1>
+    </div>
+  );
+
+  function isSubmitted() {
+    const isSubmit = submitted;
+    setSubmitted(true);
+    if (isSubmit) {
+      return successMessage();
+    }
+    if (error) {
+      return errorMessage();
+    }
+    return '';
+  }
+
+  // connect login to main page
 
   return (
     <div>
       <h1> Welcome to HNAMAGOTCHI! </h1>
       <h2>Please login! </h2>
+      <div className="Form">
+        {isSubmitted()}
+        {submitted}
+        {error}
+      </div>
 
       <form onSubmit={handleSubmit}>
         <TextField required id="username" label="Username" variant="outlined" value={username} onChange={handleChangeA} />

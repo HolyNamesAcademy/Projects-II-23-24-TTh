@@ -11,9 +11,9 @@ function SignUpPage() {
     // - add link to homepage for back button
     <div>
       <h1> Sign Up! </h1>
-      <SignUp />
 
       <p>Welcome to HNAmagotchi! </p>
+      <SignUp />
 
       <Button variant="outlined">
         <Link to="/login">
