@@ -59,6 +59,5 @@ function HomePage() {
     </>
   );
 }
-//test comment
 
 export default HomePage;
