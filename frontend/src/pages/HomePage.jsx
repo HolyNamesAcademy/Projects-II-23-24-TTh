@@ -43,7 +43,7 @@ function HomePage() {
         console.log('lowering hunger level', hungerLevel - 1);
         dispatch(setHungerLevel(hungerLevel - 1));
       }
-    }, 7000);
+    }, 8000);
 
     // cleanup function stops the timer when the component unmounts
     return clear;
@@ -59,5 +59,6 @@ function HomePage() {
     </>
   );
 }
+//test comment
 
 export default HomePage;
