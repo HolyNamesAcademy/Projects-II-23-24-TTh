@@ -100,6 +100,9 @@ class Game extends Phaser.Scene {
       this.charby.play('deflate');
       this.charby.playAfterRepeat('deflate1', 0);
     }
+    if (hunger !== 0 && this.hunger === 0) {
+      this.charby.play('normal');
+    }
   }
 
   update() {
