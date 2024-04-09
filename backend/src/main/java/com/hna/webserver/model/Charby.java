@@ -17,6 +17,14 @@ public class Charby {
     @Column(name = "birthday")
     private LocalDate birthday;
 
+    // @OneToMany (cascade=ALL, mappedBy="CharbyID")
+    // public Set<Feeding> getFeedings() { return feedings; }
+
+   
+    @OneToMany (mappedBy = "CharbyID")
+    private List<Feeding> feedings = new ArrayList<>();
+    
+
     public Charby() {
 
     }
