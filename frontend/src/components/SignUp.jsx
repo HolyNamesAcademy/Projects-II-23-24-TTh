@@ -66,6 +66,8 @@ function SignUp() {
     setSubmitted(false);
   };
 
+  /**
+
   const createUser = async () => {
     const data = {
       name,
@@ -81,6 +83,8 @@ function SignUp() {
     // eslint-disable-next-line no-console
     console.log(user);
   };
+
+  */
 
   const successMessage = () => (
     <div>
@@ -107,7 +111,7 @@ function SignUp() {
     setError(false);
 
     dispatch(signup(username, name, email, password));
-    createUser();
+    // createUser();
   };
 
   const errorMessage = () => (
