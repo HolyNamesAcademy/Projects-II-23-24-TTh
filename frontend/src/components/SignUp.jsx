@@ -74,6 +74,7 @@ function SignUp() {
       email,
     };
 
+    // eslint-disable-next-line no-console
     console.log(data);
 
     const user = await postData(userApi, data);

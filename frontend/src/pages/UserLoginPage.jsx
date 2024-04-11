@@ -39,7 +39,11 @@ function UserLogin() {
     // eslint-disable-next-line no-console
     console.log({ username, password });
 
-    dispatch(login(username, password));
+    try {
+      dispatch(login(username, password));
+    } catch {
+      setError(true);
+    }
   };
 
   const handleChangeA = (event) => {
