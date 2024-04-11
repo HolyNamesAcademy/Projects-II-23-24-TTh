@@ -95,7 +95,7 @@ function UserLogin() {
 
       <form onSubmit={handleSubmit}>
         <TextField required id="username" label="Username" variant="outlined" value={username} onChange={handleChangeA} />
-        <TextField required id="password" label="Password" variant="outlined" value={password} onChange={handleChangeB} />
+        <TextField required type="password" id="password" label="Password" variant="outlined" value={password} onChange={handleChangeB} />
         <Button variant="contained" type="submit">Login</Button>
       </form>
 
