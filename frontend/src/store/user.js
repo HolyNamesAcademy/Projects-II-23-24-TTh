@@ -51,6 +51,7 @@ export function login(username, password) {
     // Parse the response from a string into json
     const data = await response.json();
 
+    // eslint-disable-next-line no-console
     console.log(data);
 
     // Access the reducer for the greeting value

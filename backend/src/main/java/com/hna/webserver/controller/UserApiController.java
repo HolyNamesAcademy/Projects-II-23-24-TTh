@@ -1,5 +1,5 @@
 package com.hna.webserver.controller;
-
+import org.mindrot.jbcrypt.BCrypt;
 import com.hna.webserver.model.User;
 import com.hna.webserver.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
+/**HASH PASSWORD IN API CONTROLLER*/
 @RestController
 @RequestMapping("/api")
 public class UserApiController {
@@ -31,9 +31,11 @@ public class UserApiController {
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
-	public void saveUser(@RequestBody User user){
-		User save = userRepository.save(user);
+
+	public void saveUser(User user){
+		userRepository.save(user);
 	}
+
 	@PostMapping("/users/signup")
 	public ResponseEntity<User> signup(@RequestBody User user){
 		System.out.println(user);
@@ -65,10 +67,14 @@ public class UserApiController {
 				return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
 			}
 		}
-		saveUser(user);
-		return new ResponseEntity<>(HttpStatus.CREATED);
-
+		String pswd = user.getPassword();
+		String hashed = BCrypt.hashpw(pswd, BCrypt.gensalt());
+		user.setPassword(hashed);//
+		saveUser(user);//SAVES HASHED PW
+		System.out.println(user);
+		return new ResponseEntity<>(user, HttpStatus.CREATED);
 	}
+
 	@PostMapping("/users/login")
 	public ResponseEntity<User> login(@RequestBody User user){
 		if(user.getPassword()==null || user.getPassword().equals("")){
@@ -86,7 +92,7 @@ public class UserApiController {
 			User current = userList.get(i);
 
 			if(current.getUsername().equals(user.getUsername())){
-				if (current.getPassword().equals(user.getPassword())) {
+				if (BCrypt.checkpw(user.getPassword(), current.getPassword())) {
 					return new ResponseEntity<>(current, HttpStatus.ACCEPTED);
 				}
 

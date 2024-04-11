@@ -1,7 +1,6 @@
 package com.hna.webserver.model;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 
@@ -9,7 +8,10 @@ import java.time.LocalDateTime;
 @Table(name = "feedingtable")
 public class Feeding {
 
-  
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
     @Column(name = "CharbyID")
     private long CharbyID;
 
@@ -19,10 +21,10 @@ public class Feeding {
     @Column (name ="hungerLevel")
     private int hungerLevel;
 
-    @ManyToOne
-    @JoinColumn (name = "CharbyID")
-    private Charby charby;
-    
+    // @ManyToOne
+    // @JoinColumn (name = "CharbyID")
+    // private Charby charby;
+
 
     public Feeding(Long CharbyID, int hungerLevel) {
         this.CharbyID = CharbyID;
@@ -31,7 +33,8 @@ public class Feeding {
     }
 
     public long getId() {
-        return CharbyID;    }
+        return CharbyID;
+     }
 
     public LocalDateTime getLastTimeFed() {
         return lastTimeFed;
@@ -51,7 +54,7 @@ public class Feeding {
 
     @Override
     public String toString() {
-        return "Charby Feeding Info [id=" + CharbyID + ", last time fed=" + lastTimeFed +  "Hunger Level= " +hungerLevel"]";
+        return "Charby Feeding Info [id=" + CharbyID + ", last time fed=" + lastTimeFed +  "Hunger Level= " +hungerLevel+"]";
     }
 
 

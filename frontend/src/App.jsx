@@ -8,6 +8,7 @@ import store from './store';
 import DefaultLayout from './layouts/DefaultLayout';
 import HomePage from './pages/HomePage';
 import OtherPage from './pages/OtherPage';
+import WelcomePage from './pages/WelcomePage';
 import UserLoginPage from './pages/UserLoginPage';
 import NoMatchPage from './pages/NoMatchPage';
 import ChatPage from './pages/ChatPage';
@@ -32,6 +33,7 @@ function App() {
         <Routes>
           <Route path="/" element={<DefaultLayout />}>
             <Route index element={<HomePage />} />
+            <Route path="/welcome" element={<WelcomePage />} />
             <Route path="/other" element={<OtherPage />} />
             <Route path="/chat" element={<ChatPage />} />
             <Route path="/store" element={<GroceryStore />} />
