@@ -31,9 +31,11 @@ public class UserApiController {
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
-	public void saveUser(@RequestBody User user){
-		User save = userRepository.save(user);
+
+	public void saveUser(User user){
+		userRepository.save(user);
 	}
+
 	@PostMapping("/users/signup")
 	public ResponseEntity<User> signup(@RequestBody User user){
 		System.out.println(user);
@@ -70,9 +72,9 @@ public class UserApiController {
 		user.setPassword(hashed);//
 		saveUser(user);//SAVES HASHED PW
 		System.out.println(user);
-		return new ResponseEntity<>(HttpStatus.CREATED);
-
+		return new ResponseEntity<>(user, HttpStatus.CREATED);
 	}
+
 	@PostMapping("/users/login")
 	public ResponseEntity<User> login(@RequestBody User user){
 		if(user.getPassword()==null || user.getPassword().equals("")){
