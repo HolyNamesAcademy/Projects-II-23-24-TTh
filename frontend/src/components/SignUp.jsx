@@ -117,8 +117,7 @@ function SignUp() {
   );
 
   function isSubmitted() {
-    const isSubmit = submitted;
-    if (isSubmit) {
+    if (submitted) {
       return successMessage();
     }
     if (error) {

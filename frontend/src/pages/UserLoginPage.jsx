@@ -72,7 +72,6 @@ function UserLogin() {
 
   function isSubmitted() {
     const isSubmit = submitted;
-    setSubmitted(true);
     if (isSubmit) {
       return successMessage();
     }
