@@ -36,6 +36,7 @@ function UserLogin() {
     // prevent page from reloading when submitting form.
     e.preventDefault();
 
+    // eslint-disable-next-line no-console
     console.log({ username, password });
 
     dispatch(login(username, password));
