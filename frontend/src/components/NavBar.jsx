@@ -93,7 +93,9 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            HNAMAGOTCHI
+            <a href="/" style={{ textDecoration: 'none' }}>
+              HNAMAGOTCHI
+            </a>
           </Typography>
         </Toolbar>
       </AppBar>
