@@ -60,6 +60,20 @@ class Game extends Phaser.Scene {
       frameRate: 2,
     });
 
+    this.anims.create({
+      key: 'cpscar',
+      frames: this.anims.generateFrameNumbers('cps', {frames: [0, 1] }),
+      frameRate: 0.5,
+      repeat: -1,
+    });
+
+    this.anims.create({
+      key: 'cps',
+      frames: this.anims.generateFrameNumbers('charby', {frames: [15] }),
+      frameRate: 0,
+      repeat: -1,
+    });
+
     this.charby = this.add.sprite(96, 96);
     this.charby.setScale(6);
 
@@ -102,6 +116,10 @@ class Game extends Phaser.Scene {
     }
     if (hunger !== 0 && this.hunger === 0) {
       this.charby.play('normal');
+    }
+    if (hunger === -1) {
+      this.charby.play('cpscar');
+      this.charby.playAfterRepeat('cps', 10);
     }
   }
 
