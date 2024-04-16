@@ -54,7 +54,7 @@ public class Feeding {
 
     @Override
     public String toString() {
-        return "Charby Feeding Info [id=" + CharbyID + ", last time fed=" + lastTimeFed +  "Hunger Level= " +hungerLevel+"]";
+        return "Charby Feeding Info [id=" + CharbyID + ", last time fed=" + lastTimeFed +  "Hunger Level= " +hungerLevel + "]";
     }
 
 

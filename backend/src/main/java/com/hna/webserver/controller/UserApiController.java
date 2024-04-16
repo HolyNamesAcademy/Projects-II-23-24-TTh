@@ -36,7 +36,7 @@ public class UserApiController {
 		userRepository.save(user);
 	}
 
-	@PostMapping("/users/signup")
+	@PostMapping("/users/sign-up")
 	public ResponseEntity<User> signup(@RequestBody User user){
 		System.out.println(user);
 		if((user.getEmail()==null) || user.getEmail().equals("")){
