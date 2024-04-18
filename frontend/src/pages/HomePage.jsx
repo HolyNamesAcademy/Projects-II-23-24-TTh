@@ -4,6 +4,7 @@ import HomePageButton from '../components/HomePageButton';
 import PhaserGame from '../components/PhaserGame';
 import FeedButton from '../components/FeedButton';
 // import FoodAlert from '../components/FoodAlert';
+import StarvingAlert from '../components/StarvingAlert';
 
 import {
   feed as feedStore,
@@ -12,7 +13,7 @@ import {
 
 function HomePage() {
   // Rendering States
-  // const [showFoodAlert, setShowFoodAlert] = useState(false);
+  // const [showStarvingAlert] = useState(false);
   const hungerLevel = useSelector((state) => state.charby.hunger);
 
   const dispatch = useDispatch();
@@ -22,9 +23,9 @@ function HomePage() {
 
   function feed() {
     dispatch(feedStore());
-    // setShowFoodAlert(true);
+    // setShowStarvingAlert(true);
     // setTimeout(() => {
-    //   // setShowFoodAlert(false);
+    // setShowStarvingAlert(false);
     // }, 3000);
   }
 
@@ -51,6 +52,7 @@ function HomePage() {
   return (
     <>
       {/* <FoodAlert show={showFoodAlert} level={hungerLevel} /> */}
+      <StarvingAlert level={hungerLevel} />
       <PhaserGame />
       <FeedButton feed={feed} />
       <HomePageButton />
