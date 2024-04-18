@@ -13,7 +13,7 @@ function WelcomePage() {
         and are responsible for taking care of it. This is only available
         to students at Holy Names Academy.
       </h3>
-      <Button href="/signup" variant="contained" color="primary">
+      <Button href="/sign-up" variant="contained" color="primary">
         Sign Up!
       </Button>
       <Button href="/login" variant="outlined" color="primary">
