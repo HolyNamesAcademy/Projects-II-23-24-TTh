@@ -8,6 +8,7 @@ class Game extends Phaser.Scene {
     this.hunger = -1;
     this.pizzas = [];
     this.charby = null;
+    this.last.animations.played = -1;
   }
 
   init() {}
@@ -95,7 +96,7 @@ class Game extends Phaser.Scene {
     this.updatePizza(state.charby.hunger);
     this.updateCharby(state.charby.hunger);
     this.hunger = state.charby.hunger;
-
+    this.playAnimation(state.charby.animations);
   }
 
   updatePizza(hunger) {
@@ -123,9 +124,10 @@ class Game extends Phaser.Scene {
     }
   }
 
-  playAnimation() {
-
-    this.charby.play('drink');
+  playAnimation(animations) {
+    if (last.animations.played > -1) {
+      this.charby.play('drink');
+    }
   }
 
   update() {
