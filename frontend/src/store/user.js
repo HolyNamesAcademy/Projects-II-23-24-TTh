@@ -51,6 +51,40 @@ export function login(username, password) {
     // Parse the response from a string into json
     const data = await response.json();
 
+    // eslint-disable-next-line no-console
+    console.log(data);
+
+    // Access the reducer for the greeting value
+    const { setUser } = userSlice.actions;
+
+    // Set the greeting value
+    dispatch(setUser(data.user));
+  };
+}
+
+export function signup(username, name, email, password) {
+  return async (dispatch) => {
+    // Create the request path
+    const path = `${usersApiBase}/sign-up`;
+
+    // Make the request to the Java API
+    const response = await fetch(path, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username,
+        name,
+        email,
+        password,
+      }),
+    });
+    // Parse the response from a string into json
+    const data = await response.json();
+
+    // eslint-disable-next-line no-console
     console.log(data);
 
     // Access the reducer for the greeting value
