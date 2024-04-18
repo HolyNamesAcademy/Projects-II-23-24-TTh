@@ -62,20 +62,19 @@ class Game extends Phaser.Scene {
 
     this.anims.create({
       key: 'cpscar',
-      frames: this.anims.generateFrameNumbers('cps', {frames: [0, 1] }),
-      frameRate: 0.5,
+      frames: this.anims.generateFrameNumbers('cps', { frames: [0, 1] }),
+      frameRate: 1,
       repeat: -1,
     });
 
     this.anims.create({
       key: 'cps',
-      frames: this.anims.generateFrameNumbers('charby', {frames: [15] }),
+      frames: this.anims.generateFrameNumbers('charby', { frames: [15] }),
       frameRate: 0,
       repeat: -1,
     });
 
     this.charby = this.add.sprite(96, 96);
-    this.charby.setScale(6);
 
     this.charby.play('normal');
 

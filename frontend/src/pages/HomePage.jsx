@@ -51,8 +51,7 @@ function HomePage() {
     return clear;
   }, [dispatch, hungerLevel]);
 
-  //cps
-
+  // cps
 
   useEffect(() => {
     // helper function to stop an existing timer
