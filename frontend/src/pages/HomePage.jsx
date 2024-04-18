@@ -4,7 +4,6 @@ import HomePageButton from '../components/HomePageButton';
 import PhaserGame from '../components/PhaserGame';
 import FeedButton from '../components/FeedButton';
 // import FoodAlert from '../components/FoodAlert';
-import CharbyHeader from '../components/CharbyHeader';
 
 import {
   feed as feedStore,
@@ -79,7 +78,6 @@ function HomePage() {
   return (
     <>
       {/* <FoodAlert show={showFoodAlert} level={hungerLevel} /> */}
-      <CharbyHeader />
       <PhaserGame />
       <FeedButton feed={feed} />
       <HomePageButton />
