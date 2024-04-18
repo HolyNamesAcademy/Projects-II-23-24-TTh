@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Alert from '@mui/material/Alert';
-import CheckIcon from '@mui/icons-material/Check';
 
 export default function SimpleAlert({ level }) {
   if (level > 0) {
@@ -17,7 +16,7 @@ export default function SimpleAlert({ level }) {
   }
 
   return (
-    <Alert icon={<CheckIcon fontSize="inherit" />} severity="failure">
+    <Alert severity="error">
       {message}
     </Alert>
   );
