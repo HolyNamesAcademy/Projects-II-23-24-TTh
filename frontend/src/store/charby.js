@@ -20,5 +20,5 @@ const charbySlice = createSlice({
   },
 });
 
-export const { feed, setHungerLevel } = charbySlice.actions;
+export const { feed, setHungerLevel, playAnimation } = charbySlice.actions;
 export default charbySlice.reducer;

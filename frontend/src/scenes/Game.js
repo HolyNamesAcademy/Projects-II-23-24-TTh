@@ -95,6 +95,7 @@ class Game extends Phaser.Scene {
     this.updatePizza(state.charby.hunger);
     this.updateCharby(state.charby.hunger);
     this.hunger = state.charby.hunger;
+
   }
 
   updatePizza(hunger) {
@@ -120,6 +121,11 @@ class Game extends Phaser.Scene {
       this.charby.play('cpscar');
       this.charby.playAfterRepeat('cps', 10);
     }
+  }
+
+  playAnimation() {
+
+    this.charby.play('drink');
   }
 
   update() {
