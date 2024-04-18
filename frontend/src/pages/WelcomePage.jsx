@@ -6,6 +6,7 @@ import { Button } from '@mui/material';
 
 function WelcomePage() {
   return (
+
     <>
       <h1>Welcome to HNAmagotchi!</h1>
       <h3>
@@ -19,6 +20,7 @@ function WelcomePage() {
       <Button href="/login" variant="outlined" color="primary">
         Log In!
       </Button>
+      <img src="/static/charby.png" alt="" />
     </>
   );
 }
