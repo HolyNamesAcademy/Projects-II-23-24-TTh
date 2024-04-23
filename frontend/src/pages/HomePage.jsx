@@ -19,6 +19,8 @@ function HomePage() {
 
   // Timer States
   const intervalId = useRef();
+  const cpsId = useRef();
+  const cpsCount = useRef();
 
   function feed() {
     dispatch(feedStore());
@@ -39,9 +41,35 @@ function HomePage() {
     // start the timer
     intervalId.current = setInterval(() => {
       if (hungerLevel > 0) {
+        cpsCount.current = 0;
         dispatch(setHungerLevel(hungerLevel - 1));
       }
     }, 8000);
+
+    // cleanup function stops the timer when the component unmounts
+    return clear;
+  }, [dispatch, hungerLevel]);
+
+  // cps
+
+  useEffect(() => {
+    // helper function to stop an existing timer
+    const clear = () => {
+      if (cpsId.current) {
+        clearInterval(cpsId.current);
+      }
+    };
+
+    // start the timer
+    cpsId.current = setInterval(() => {
+      if (hungerLevel === 0) {
+        if (cpsCount.current < 10) {
+          cpsCount.current++;
+        } else if (cpsCount.current === 10) {
+          dispatch(setHungerLevel(hungerLevel - 1));
+        }
+      }
+    }, 1000);
 
     // cleanup function stops the timer when the component unmounts
     return clear;

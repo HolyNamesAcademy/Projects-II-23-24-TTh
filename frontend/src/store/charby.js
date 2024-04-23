@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = { hunger: 1 };
+const initialState = { hunger: 1, animations: [] };
 
 const charbySlice = createSlice({
   name: 'charby',
@@ -14,8 +14,11 @@ const charbySlice = createSlice({
     setHungerLevel(state, action) {
       state.hunger = action.payload;
     },
+    playAnimation(state, action) {
+      state.animations.push(action.payload);
+    },
   },
 });
 
-export const { feed, setHungerLevel } = charbySlice.actions;
+export const { feed, setHungerLevel, playAnimation } = charbySlice.actions;
 export default charbySlice.reducer;
