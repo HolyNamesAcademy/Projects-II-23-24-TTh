@@ -15,9 +15,11 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import Typography from '@mui/material/Typography';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import GradeIcon from '@mui/icons-material/Grade';
+import SchoolIcon from '@mui/icons-material/School';
+import FilePresentIcon from '@mui/icons-material/FilePresent';
 
 const drawerWidth = 240;
 
@@ -78,6 +80,29 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
 
+  const links = [
+    {
+      title: 'Calendar',
+      href: 'https://www.holynames-sea.org/calendar',
+      icon: (<CalendarMonthIcon />),
+    },
+    {
+      title: 'Online Grades',
+      href: 'https://sms.holynames-sea.org/public/home.html',
+      icon: (<GradeIcon />),
+    },
+    {
+      title: 'MySchoolAccount',
+      href: 'https://www.myschoolaccount.com/',
+      icon: (<SchoolIcon />),
+    },
+    {
+      title: 'Office 365',
+      href: 'https://www.office.com/',
+      icon: (<FilePresentIcon />),
+    },
+  ];
+
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -119,54 +144,16 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-          <a href="https://www.holynames-sea.org/calendar">
-            {['Calendar'].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </a>
-          <a href="https://sms.holynames-sea.org/public/home.html">
-            {['Online Grades'].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </a>
-          <a href="https://www.myschoolaccount.com/">
-            {['MySchoolAccount'].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </a>
-          <a href="https://www.office.com/">
-            {['Office 365'].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </a>
+          {links.map((link) => (
+            <ListItem key={link.title} disablePadding>
+              <ListItemButton href={link.href}>
+                <ListItemIcon>
+                  {link.icon}
+                </ListItemIcon>
+                <ListItemText primary={link.title} />
+              </ListItemButton>
+            </ListItem>
+          ))}
         </List>
         <Divider />
       </Drawer>
