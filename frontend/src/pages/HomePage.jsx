@@ -64,9 +64,9 @@ function HomePage() {
     // start the timer
     cpsId.current = setInterval(() => {
       if (hungerLevel === 0) {
-        if (cpsCount.current < 10) {
+        if (cpsCount.current < 40) {
           cpsCount.current++;
-        } else if (cpsCount.current === 10) {
+        } else if (cpsCount.current === 40) {
           dispatch(setHungerLevel(hungerLevel - 1));
         }
       }
