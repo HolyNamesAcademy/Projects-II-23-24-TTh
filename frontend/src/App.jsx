@@ -9,9 +9,11 @@ import DefaultLayout from './layouts/DefaultLayout';
 import HomePage from './pages/HomePage';
 import OtherPage from './pages/OtherPage';
 import WelcomePage from './pages/WelcomePage';
+import UserLoginPage from './pages/UserLoginPage';
 import NoMatchPage from './pages/NoMatchPage';
 import ChatPage from './pages/ChatPage';
 import GroceryStore from './pages/GroceryStore';
+import SignUpPage from './pages/SignUpPage';
 
 const theme = createTheme({
   palette: {
@@ -36,10 +38,12 @@ function App() {
             <Route path="/other" element={<OtherPage />} />
             <Route path="/chat" element={<ChatPage />} />
             <Route path="/store" element={<GroceryStore />} />
+            <Route path="/login" element={<UserLoginPage />} />
+            <Route path="/sign-up" element={<SignUpPage />} />
 
             {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
-                routes for. */}//
+                routes for. */}
             <Route path="*" element={<NoMatchPage />} />
           </Route>
         </Routes>

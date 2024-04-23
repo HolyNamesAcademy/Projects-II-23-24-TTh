@@ -93,7 +93,9 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            HNAMAGOTCHI
+            <a href="/" style={{ textDecoration: 'none' }}>
+              HNAMAGOTCHI
+            </a>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -119,6 +121,42 @@ export default function PersistentDrawerLeft() {
         <List>
           <a href="https://www.holynames-sea.org/calendar">
             {['Calendar'].map((text, index) => (
+              <ListItem key={text} disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </a>
+          <a href="https://sms.holynames-sea.org/public/home.html">
+            {['Online Grades'].map((text, index) => (
+              <ListItem key={text} disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </a>
+          <a href="https://www.myschoolaccount.com/">
+            {['MySchoolAccount'].map((text, index) => (
+              <ListItem key={text} disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </a>
+          <a href="https://www.office.com/">
+            {['Office 365'].map((text, index) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton>
                   <ListItemIcon>

@@ -2,6 +2,8 @@ package com.hna.webserver.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "charbeez")
@@ -16,6 +18,12 @@ public class Charby {
 
     @Column(name = "birthday")
     private LocalDate birthday;
+
+    // @OneToMany (cascade=ALL, mappedBy="CharbyID")
+    // public Set<Feeding> getFeedings() { return feedings; }
+
+    // @OneToMany (mappedBy = "CharbyID")
+    // private List<Feeding> feedings = new ArrayList<>();
 
     public Charby() {
 

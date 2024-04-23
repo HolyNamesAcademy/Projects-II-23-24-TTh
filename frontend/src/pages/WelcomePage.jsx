@@ -3,6 +3,7 @@
 // route to the App.jsx file.
 import * as React from 'react';
 import { Button } from '@mui/material';
+import './WelcomePage.css';
 
 function WelcomePage() {
   return (
@@ -14,9 +15,10 @@ function WelcomePage() {
         and are responsible for taking care of it. This is only available
         to students at Holy Names Academy.
       </h3>
-      <Button href="/sign-up" variant="contained" color="primary">
+      <Button href="/sign-up" variant="contained" color="primary" className="signup">
         Sign Up!
       </Button>
+
       <Button href="/login" variant="outlined" color="primary">
         Log In!
       </Button>
