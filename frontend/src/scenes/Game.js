@@ -111,6 +111,10 @@ class Game extends Phaser.Scene {
   }
 
   updateCharby(hunger) {
+    if (this.hunger === hunger) {
+      return;
+    }
+
     if (hunger === 0) {
       // eslint-disable-next-line no-debugger
       this.charby.play('deflate');
