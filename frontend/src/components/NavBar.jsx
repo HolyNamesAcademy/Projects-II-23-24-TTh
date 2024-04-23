@@ -20,6 +20,9 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import GradeIcon from '@mui/icons-material/Grade';
 import SchoolIcon from '@mui/icons-material/School';
 import FilePresentIcon from '@mui/icons-material/FilePresent';
+import WavingHandIcon from '@mui/icons-material/WavingHand';
+import LoginIcon from '@mui/icons-material/Login';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 const drawerWidth = 240;
 
@@ -81,6 +84,21 @@ export default function PersistentDrawerLeft() {
   };
 
   const links = [
+    {
+      title: 'Welcome',
+      href: `${process.env.PUBLIC_URL}/welcome`,
+      icon: (<WavingHandIcon />),
+    },
+    {
+      title: 'Login',
+      href: `${process.env.PUBLIC_URL}/login`,
+      icon: (<LoginIcon />),
+    },
+    {
+      title: 'Sign Up',
+      href: `${process.env.PUBLIC_URL}/sign-up`,
+      icon: (<PersonAddIcon />),
+    },
     {
       title: 'Calendar',
       href: 'https://www.holynames-sea.org/calendar',
