@@ -9,6 +9,7 @@ const charbySlice = createSlice({
     feed(state) {
       if (state.hunger < 3) {
         state.hunger++;
+        state.animations.push('feed');
       }
     },
     setHungerLevel(state, action) {
