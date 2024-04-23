@@ -7,10 +7,11 @@ import './WelcomePage.css';
 
 function WelcomePage() {
   return (
+
     <>
       <h1>Welcome to HNAmagotchi!</h1>
       <h3>
-        In our website, users can adopt a charby, similar to a tomagotchi,
+        In our website, users can adopt a charby, similar to a tamagotchi,
         and are responsible for taking care of it. This is only available
         to students at Holy Names Academy.
       </h3>
@@ -21,6 +22,7 @@ function WelcomePage() {
       <Button href="/login" variant="outlined" color="primary">
         Log In!
       </Button>
+      <img src="/static/charby.png" alt="" />
     </>
   );
 }
