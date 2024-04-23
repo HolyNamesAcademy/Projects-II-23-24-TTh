@@ -12,7 +12,7 @@ export default function SimpleAlert({ level }) {
     message = 'Your Charby is Starving';
   }
   if (level === -1) {
-    message = 'Your Charby is being siezed by Charby Protective Services';
+    message = 'Your Charby is being seized by Charby Protective Services';
   }
 
   return (

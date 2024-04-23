@@ -121,7 +121,7 @@ class Game extends Phaser.Scene {
     }
     if (hunger === -1) {
       this.charby.play('cpscar');
-      this.charby.playAfterRepeat('cps', 10);
+      this.charby.playAfterRepeat('cps', 3);
     }
   }
 
