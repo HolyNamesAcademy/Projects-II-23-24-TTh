@@ -51,14 +51,13 @@ class Game extends Phaser.Scene {
 
     this.anims.create({
       key: 'drink',
-      frames: this.anims.generateFrameNumbers('charby', { frames: [8, 9, 10, 11] }),
+      frames: this.anims.generateFrameNumbers('charby', { frames: [8, 9, 10, 11, 0] }),
       frameRate: 2,
-      repeat: -1,
     });
 
     this.anims.create({
       key: 'feed',
-      frames: this.anims.generateFrameNumbers('charby', { frames: [5, 6, 7] }),
+      frames: this.anims.generateFrameNumbers('charby', { frames: [5, 6, 7, 0] }),
       frameRate: 2,
     });
 
@@ -134,8 +133,7 @@ class Game extends Phaser.Scene {
       this.last_animation_played++;
       const animation = animations[this.last_animation_played];
       if (this.hunger > 0) {
-        this.charby.play(animation);
-        this.charby.playAfterRepeat('normal', 0);
+        this.charby.playAfterRepeat(animation, 0);
       }
     }
   }
