@@ -14,7 +14,7 @@
 // import CardContent from '@mui/material/CardContent';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { useState } from 'react';
@@ -100,14 +100,10 @@ function UserLogin() {
       </form>
 
       <h2> First time here? Sign Up!</h2>
-      <Button variant="outlined">
-        <Link to="/sign-up">
-          Sign-Up Page
-        </Link>
+      <Button component={RouterLink} variant="outlined" to="/sign-up">
+        Sign-Up Page
       </Button>
-
     </div>
-
   );
 }
 // login  works on the backend then it should route to home page

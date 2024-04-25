@@ -4,6 +4,7 @@
 import * as React from 'react';
 import { Button } from '@mui/material';
 import './WelcomePage.css';
+import { Link as RouterLink } from 'react-router-dom';
 
 function WelcomePage() {
   return (
@@ -16,11 +17,11 @@ function WelcomePage() {
         and are responsible for taking care of it. This is only available
         to students at Holy Names Academy.
       </h3>
-      <Button href="/sign-up" variant="contained" color="primary" className="signup">
+      <Button component={RouterLink} to="/sign-up" variant="contained" color="primary" className="signup">
         Sign Up!
       </Button>
 
-      <Button href="/login" variant="outlined" color="primary">
+      <Button component={RouterLink} to="/login" variant="outlined" color="primary">
         Log In!
       </Button>
     </>
