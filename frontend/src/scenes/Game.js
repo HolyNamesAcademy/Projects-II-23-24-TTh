@@ -71,7 +71,7 @@ class Game extends Phaser.Scene {
     this.anims.create({
       key: 'cps',
       frames: this.anims.generateFrameNumbers('charby', { frames: [15] }),
-      frameRate: 0,
+      frameRate: 1,
       repeat: -1,
     });
 
