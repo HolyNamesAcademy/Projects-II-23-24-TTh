@@ -11,7 +11,6 @@ import OtherPage from './pages/OtherPage';
 import WelcomePage from './pages/WelcomePage';
 import UserLoginPage from './pages/UserLoginPage';
 import NoMatchPage from './pages/NoMatchPage';
-import ChatPage from './pages/ChatPage';
 import GroceryStore from './pages/GroceryStore';
 import SignUpPage from './pages/SignUpPage';
 
@@ -36,7 +35,6 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="/welcome" element={<WelcomePage />} />
             <Route path="/other" element={<OtherPage />} />
-            <Route path="/chat" element={<ChatPage />} />
             <Route path="/store" element={<GroceryStore />} />
             <Route path="/login" element={<UserLoginPage />} />
             <Route path="/sign-up" element={<SignUpPage />} />

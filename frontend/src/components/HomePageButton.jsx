@@ -10,6 +10,9 @@ export default function OutlinedButtons() {
   function giveDrink() {
     dispatch(playAnimation('drink'));
   }
+  function cheer(){
+    dispatch(playAnimation('cheer'));
+  }
   return (
     <Stack className="nav-buttons" direction="row" spacing={2}>
       <a href="store">
@@ -17,11 +20,9 @@ export default function OutlinedButtons() {
           🛒
         </HomePageButton>
       </a>
-      <a href="chat">
-        <HomePageButton variant="outlined">
-          💬
-        </HomePageButton>
-      </a>
+      <HomePageButton variant="outlined" onClick={cheer}>
+        🎉
+      </HomePageButton>
       <div>
         <HomePageButton variant="outlined" onClick={giveDrink}>
           🧃
