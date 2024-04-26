@@ -14,6 +14,7 @@ class Bootstrap extends Phaser.Scene {
     this.load.image('pizza', `${process.env.PUBLIC_URL}/static/pizza2.png`, { frameWidth: 10, frameHeight: 10 });
     this.load.spritesheet('charby', `${process.env.PUBLIC_URL}/static/Spritesheet!!.png`, { frameWidth: 192, frameHeight: 192 });
     this.load.spritesheet('cps', `${process.env.PUBLIC_URL}/static/CPS_Spritesheet.png`, { frameWidth: 192, frameHeight: 192 });
+    this.load.spritesheet('charby_party', `${process.env.PUBLIC_URL}/static/CharbyParty.png`, { frameWidth: 192, frameHeight: 192 });
   }
 
   create() {
