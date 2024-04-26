@@ -24,7 +24,7 @@ class Game extends Phaser.Scene {
     this.anims.create({
       key: 'normal',
       frames: this.anims.generateFrameNumbers('charby', { frames: [0] }),
-      frameRate: 1,
+      frameRate: 10,
       repeat: -1,
     });
 
@@ -71,7 +71,7 @@ class Game extends Phaser.Scene {
     this.anims.create({
       key: 'cps',
       frames: this.anims.generateFrameNumbers('charby', { frames: [15] }),
-      frameRate: 0,
+      frameRate: 10,
       repeat: -1,
     });
 

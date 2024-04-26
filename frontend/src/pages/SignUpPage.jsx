@@ -2,7 +2,7 @@
 // new pages. When you copy it, make sure to add a
 // route to the App.jsx file.
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import SignUp from '../components/SignUp';
 
 function SignUpPage() {
@@ -15,12 +15,10 @@ function SignUpPage() {
       <p>Welcome to HNAmagotchi! </p>
       <SignUp />
 
-      <Button variant="outlined">
-        <Link to="/login">
-          Login Page
-        </Link>
+      <h2> Already have an account? Login!</h2>
+      <Button component={RouterLink} variant="outlined" to="/login">
+        Login Page
       </Button>
-
     </div>
 
   );

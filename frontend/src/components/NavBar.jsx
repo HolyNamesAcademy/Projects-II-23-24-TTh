@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -136,9 +137,9 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            <a href="/" style={{ textDecoration: 'none' }}>
+            <RouterLink to="/" style={{ textDecoration: 'none' }}>
               HNAMAGOTCHI
-            </a>
+            </RouterLink>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -164,7 +165,7 @@ export default function PersistentDrawerLeft() {
         <List>
           {links.map((link) => (
             <ListItem key={link.title} disablePadding>
-              <ListItemButton href={link.href}>
+              <ListItemButton component={RouterLink} to={link.href}>
                 <ListItemIcon>
                   {link.icon}
                 </ListItemIcon>

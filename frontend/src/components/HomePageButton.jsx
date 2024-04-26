@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import HomePageButton from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import './HomePageButton.css';
@@ -10,19 +11,21 @@ export default function OutlinedButtons() {
   function giveDrink() {
     dispatch(playAnimation('drink'));
   }
-  function cheer(){
+  function cheer() {
     dispatch(playAnimation('cheer'));
   }
   return (
     <Stack className="nav-buttons" direction="row" spacing={2}>
-      <a href="store">
+      <RouterLink to="store">
         <HomePageButton variant="outlined">
           🛒
         </HomePageButton>
-      </a>
-      <HomePageButton variant="outlined" onClick={cheer}>
-        🎉
-      </HomePageButton>
+      </RouterLink>
+      <div>
+        <HomePageButton variant="outlined" onClick={cheer}>
+          🎉
+        </HomePageButton>
+      </div>
       <div>
         <HomePageButton variant="outlined" onClick={giveDrink}>
           🧃
